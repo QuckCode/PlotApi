@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon  --exec babel-node  server.js ",
-    "start": "pm2-runtime start ecosystem.config.js --env production",
+    "start": "node server.js",
     "test": "jest --verbose false",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix "
