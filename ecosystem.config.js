@@ -3,7 +3,6 @@ module.exports = {
     {
       name: "api",
       script: "./server.js",
-      instances: "max",
       env: {
         NODE_ENV: "development",
       },
