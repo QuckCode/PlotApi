@@ -7,8 +7,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const config = require("@config");
-const redisClient = require("redis").createClient;
-const redis = redisClient(6379, "localhost");
+// const redisClient = require("redis").createClient;
+// const redis = redisClient(6379, "localhost");
 const listEndpoints = require("express-list-endpoints");
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require("./swagger.json");
@@ -61,9 +61,9 @@ require("@app/Sms");
 require("@app/Result");
 require("@app/ScratchCard");
 
-redis.on("connect", () => {
-  console.log("connected to Redis");
-});
+// redis.on("connect", () => {
+//   console.log("connected to Redis");
+// });
 
 var __setOptions = mongoose.Query.prototype.setOptions;
 
