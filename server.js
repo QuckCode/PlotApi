@@ -7,17 +7,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const config = require("@config");
-// const redisClient = require("redis").createClient;
-// const redis = redisClient(6379, "localhost");
 const listEndpoints = require("express-list-endpoints");
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require("./swagger.json");
 
 const port = process.env.PORT || 4000;
 const cors = require("cors");
-
-// const expressWs = require("express-ws");
-const clearCache = require("@services/cache");
 const { notFoundMiddleWare } = require("@middleware/notFound");
 const { errorMiddleWare } = require("@middleware/Error");
 
