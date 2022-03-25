@@ -1,0 +1,1 @@
+{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"plot.staffs"},{"v":{"$numberInt":"2"},"unique":true,"key":{"regNumber":{"$numberInt":"1"}},"name":"regNumber_1","background":true,"ns":"plot.staffs"}],"uuid":"e7dd27bcc07b4fb7bd456eb3200aa2a3","collectionName":"staffs"}

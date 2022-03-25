@@ -1,0 +1,1 @@
+{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"plot.behaviours"},{"v":{"$numberInt":"2"},"key":{"name":{"$numberInt":"1"}},"name":"name_1","background":true,"ns":"plot.behaviours"}],"uuid":"b7edcc6ef9174ed6980af6aeba5aff34","collectionName":"behaviours"}

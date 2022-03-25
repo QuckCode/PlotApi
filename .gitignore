@@ -1,0 +1,8 @@
+node_modules
+npm-debug.log
+.env
+.DS_Store
+build
+node_modules.nosync
+
+node_modules.nosync

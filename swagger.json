@@ -1,0 +1,7145 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "plot api",
+    "contact": {}
+  },
+  "host": "localhost:4000",
+  "basePath": "/",
+  "securityDefinitions": {},
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/schools": {
+      "post": {
+        "summary": "create school",
+        "tags": ["School"],
+        "operationId": "createschool",
+        "deprecated": false,
+        "produces": ["application/json; charset=utf-8"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/createschoolrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/createschool"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "message": "Created School"
+              }
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "28"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"1c-IlOINX4DsY/GM7Cy8gmMODWW2ew\""
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept-Encoding"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Tue, 28 Sep 2021 14:25:04 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Keep-Alive": {
+                "type": "string",
+                "default": "timeout=5"
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/DuplicateError1"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "title": "Duplicate Error",
+                "message": "School with this name or prefix exist"
+              }
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "77"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"4d-i9q6eOUkHZd9KpHB2Yn302Na+AA\""
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept-Encoding"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Tue, 28 Sep 2021 15:31:33 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Keep-Alive": {
+                "type": "string",
+                "default": "timeout=5"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Schools",
+        "tags": ["School"],
+        "operationId": "Schools",
+        "deprecated": false,
+        "produces": ["application/json; charset=utf-8"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "default": "",
+              "items": {
+                "$ref": "#/definitions/School"
+              }
+            },
+            "examples": {
+              "application/json; charset=utf-8": [
+                {
+                  "_id": "5f9183cad035174e94992476",
+                  "name": "Brilliant Imapct School",
+                  "schoolPrefix": "BIIA",
+                  "address": "Angwan Tomato, Gauraka, Tafa L.G.A, Niger State ",
+                  "phoneNumber": "+2348034055074",
+                  "email": "dandynamicx@gmail.com",
+                  "schoolId": "BIIA385589",
+                  "__v": 1,
+                  "section": "2020/2021",
+                  "term": "First",
+                  "faceBookBio": "https://facebook.com/",
+                  "images": [],
+                  "instagramBio": "https://www.instagram.com",
+                  "notice": [],
+                  "openedDays": 0,
+                  "previousSchoolSection": ["2021/2022"],
+                  "schoolImageAsBlob": " ",
+                  "twitterBio": "https://twitter.com",
+                  "youtubeBio": "https://youtube.com/"
+                },
+                {
+                  "_id": "615325c063cda80d59c473e4",
+                  "section": "2021/2022",
+                  "term": "First",
+                  "openedDays": 0,
+                  "notice": [],
+                  "previousSchoolSection": [],
+                  "images": [],
+                  "faceBookBio": "https://facebook.com/",
+                  "twitterBio": "https://twitter.com",
+                  "youtubeBio": "https://youtube.com/",
+                  "instagramBio": "https://www.instagram.com",
+                  "schoolImageAsBlob": " ",
+                  "name": "Test",
+                  "schoolPrefix": "XAx",
+                  "address": "Angwan Tomato, Gauraka, Tafa L.G.A, Niger State",
+                  "phoneNumber": "+2348034055074",
+                  "email": "email",
+                  "schoolId": "XAx704524",
+                  "__v": 0
+                }
+              ]
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"400-CjxtzVyRvZ0yUOcga9gX4iljnTE\""
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept-Encoding"
+              },
+              "Content-Encoding": {
+                "type": "string",
+                "default": "gzip"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Tue, 28 Sep 2021 14:25:12 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Keep-Alive": {
+                "type": "string",
+                "default": "timeout=5"
+              },
+              "Transfer-Encoding": {
+                "type": "string",
+                "default": "chunked"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete School",
+        "tags": ["School"],
+        "operationId": "DeleteSchool",
+        "deprecated": false,
+        "produces": ["application/json; charset=utf-8"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/DeleteSchoolRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DeleteSchool"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "message": "Deleted School With Name Test"
+              }
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "43"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"2b-0LAbazv4CWpb8gBTGRfnjCeEj14\""
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept-Encoding"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Tue, 28 Sep 2021 15:34:36 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Keep-Alive": {
+                "type": "string",
+                "default": "timeout=5"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/school/setting/5f9183cad035174e94992476": {
+      "get": {
+        "summary": "School settings",
+        "tags": ["School"],
+        "operationId": "Schoolsettings",
+        "deprecated": false,
+        "produces": ["application/json; charset=utf-8"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/getschoolsettings"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "_id": "5f9183cad035174e94992476",
+                "name": "Brilliant Imapct School",
+                "schoolPrefix": "BIIA",
+                "address": "Angwan Tomato, Gauraka, Tafa L.G.A, Niger State ",
+                "phoneNumber": "+2348034055074",
+                "email": "dandynamicx@gmail.com",
+                "schoolId": "BIIA385589",
+                "__v": 1,
+                "section": "2020/2021",
+                "term": "First",
+                "faceBookBio": "https://facebook.com/",
+                "images": [],
+                "instagramBio": "https://www.instagram.com",
+                "notice": [],
+                "openedDays": 0,
+                "previousSchoolSection": ["2021/2022"],
+                "schoolImageAsBlob": " ",
+                "twitterBio": "https://twitter.com",
+                "youtubeBio": "https://youtube.com/"
+              }
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"217-4olyMWQWUTxVffArGzXo8lpceFk\""
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept-Encoding"
+              },
+              "Content-Encoding": {
+                "type": "string",
+                "default": "gzip"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Tue, 28 Sep 2021 14:25:21 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Keep-Alive": {
+                "type": "string",
+                "default": "timeout=5"
+              },
+              "Transfer-Encoding": {
+                "type": "string",
+                "default": "chunked"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/school/setting": {
+      "patch": {
+        "summary": "edit school settings",
+        "tags": ["School"],
+        "operationId": "editschoolsettings",
+        "deprecated": false,
+        "produces": ["application/json; charset=utf-8"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/editschoolsettingsrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/editschoolsettings"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "message": "Saved Setting "
+              }
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "28"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"1c-YqohePH+mKDTfJhlkKQWYxVE3vg\""
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept-Encoding"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Tue, 28 Sep 2021 14:27:36 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Keep-Alive": {
+                "type": "string",
+                "default": "timeout=5"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/section": {
+      "post": {
+        "summary": "Create Section",
+        "tags": ["Section"],
+        "operationId": "CreateSection",
+        "deprecated": false,
+        "produces": ["application/json; charset=utf-8"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreateSectionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CreateSection"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "status": "Success",
+                "message": "Create Section Successfully "
+              }
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "58"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"3a-MFHDolM8tzSC5uCGTzeVM1YzcpM\""
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept-Encoding"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Wed, 29 Sep 2021 09:29:38 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Keep-Alive": {
+                "type": "string",
+                "default": "timeout=5"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Section",
+        "tags": ["Section"],
+        "operationId": "DeleteSection",
+        "deprecated": false,
+        "produces": ["application/json; charset=utf-8"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/DeleteSectionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DeleteSection"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "title": "success",
+                "message": "Deleted Baby section Section  "
+              }
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "62"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"3e-/lO3m3vbY3vQLEoYFWSN9xr7h5U\""
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept-Encoding"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Fri, 01 Oct 2021 11:58:55 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Keep-Alive": {
+                "type": "string",
+                "default": "timeout=5"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/section/5f9183cad035174e94992476": {
+      "get": {
+        "summary": "Get Sections",
+        "tags": ["Section"],
+        "operationId": "GetSections",
+        "deprecated": false,
+        "produces": ["application/json; charset=utf-8"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "default": "",
+              "items": {
+                "$ref": "#/definitions/getsection"
+              }
+            },
+            "examples": {
+              "application/json; charset=utf-8": [
+                {
+                  "_id": "5f9185c60800924ed7c4d3cc",
+                  "section": "Primary Section",
+                  "school": "5f9183cad035174e94992476",
+                  "__v": 4,
+                  "behaviors": ["5fa26ec7c113d5001781c9f4"],
+                  "skills": []
+                },
+                {
+                  "_id": "5f9eff3e980ec3001791718d",
+                  "section": "Secondary",
+                  "school": "5f9183cad035174e94992476",
+                  "__v": 1,
+                  "behaviors": [],
+                  "skills": [
+                    "5fa26ccdc113d5001781c9f1",
+                    "5fa26d11c113d5001781c9f2",
+                    "5fa26d28c113d5001781c9f3"
+                  ]
+                },
+                {
+                  "_id": "5f9eff4d980ec3001791718e",
+                  "section": "Kindergarten",
+                  "school": "5f9183cad035174e94992476",
+                  "__v": 1,
+                  "behaviors": ["5fa26ec7c113d5001781c9f4"],
+                  "skills": []
+                },
+                {
+                  "_id": "5f9effa1980ec3001791718f",
+                  "section": "Junior Secondary",
+                  "school": "5f9183cad035174e94992476",
+                  "__v": 0
+                },
+                {
+                  "_id": "5f9effad980ec30017917190",
+                  "section": "Senior Secondary",
+                  "school": "5f9183cad035174e94992476",
+                  "__v": 1,
+                  "behaviors": ["5fa26ec7c113d5001781c9f4"],
+                  "skills": []
+                },
+                {
+                  "_id": "5f9f014c980ec3001791719c",
+                  "section": "Nursery",
+                  "school": "5f9183cad035174e94992476",
+                  "__v": 0
+                },
+                {
+                  "_id": "6154320202ae793f5e39be93",
+                  "behaviors": [],
+                  "skills": [],
+                  "section": "Primary test",
+                  "school": "5f9183cad035174e94992476",
+                  "__v": 0
+                },
+                {
+                  "_id": "61543404fae4074023512bf9",
+                  "behaviors": [],
+                  "skills": [],
+                  "section": "Primary test",
+                  "school": "5f9183cad035174e94992476",
+                  "__v": 0
+                }
+              ]
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"484-kb2gQn+8aWWY5XScgDKCZwyscuo\""
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept-Encoding"
+              },
+              "Content-Encoding": {
+                "type": "string",
+                "default": "gzip"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Wed, 29 Sep 2021 10:00:38 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Keep-Alive": {
+                "type": "string",
+                "default": "timeout=5"
+              },
+              "Transfer-Encoding": {
+                "type": "string",
+                "default": "chunked"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/section/behaviour/add": {
+      "post": {
+        "summary": "Add Behaviour to Section",
+        "tags": ["Section"],
+        "operationId": "AddBehaviourtoSection",
+        "deprecated": false,
+        "produces": ["application/json; charset=utf-8"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AddBehaviourtoSectionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AddBehaviourtoSection"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "title": "success",
+                "message": "Added Behaviour To Section"
+              }
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "58"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"3a-9qu21Wo/6zIEXtpmt3RGolIg/DQ\""
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept-Encoding"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Fri, 01 Oct 2021 10:48:40 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Keep-Alive": {
+                "type": "string",
+                "default": "timeout=5"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/section/behaviour/5f9185c60800924ed7c4d3cc": {
+      "get": {
+        "summary": "Get Section  behaviour",
+        "tags": ["Section"],
+        "operationId": "GetSectionbehaviour",
+        "deprecated": false,
+        "produces": ["application/json; charset=utf-8"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "default": "",
+              "items": {
+                "$ref": "#/definitions/GetSectionbehaviour"
+              }
+            },
+            "examples": {
+              "application/json; charset=utf-8": [
+                {
+                  "_id": "61546ebcf8a89678e0309a87",
+                  "name": "LoCa",
+                  "school": "5f9183cad035174e94992476",
+                  "__v": 0
+                }
+              ]
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "94"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"5e-6FLuKfszwVNaHBMEwkUR5MQ6eM4\""
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept-Encoding"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Fri, 01 Oct 2021 10:54:26 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Keep-Alive": {
+                "type": "string",
+                "default": "timeout=5"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/section/behaviour/remove": {
+      "post": {
+        "summary": "Remove Behaviour to Section",
+        "tags": ["Section"],
+        "operationId": "RemoveBehaviourtoSection",
+        "deprecated": false,
+        "produces": ["application/json; charset=utf-8"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RemoveBehaviourtoSectionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/RemoveBehaviourtoSection"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "title": "success",
+                "message": "Removed Behaviors To Section"
+              }
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "60"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"3c-D4wfFOSIoXlCfSmaVGbdTW2CtC0\""
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept-Encoding"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Fri, 01 Oct 2021 11:00:27 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Keep-Alive": {
+                "type": "string",
+                "default": "timeout=5"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/section/skill/add": {
+      "post": {
+        "summary": "Add Skill to Section",
+        "tags": ["Section"],
+        "operationId": "AddSkilltoSection",
+        "deprecated": false,
+        "produces": ["application/json; charset=utf-8"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AddSkilltoSectionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AddSkilltoSection"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "title": "success",
+                "message": "Added Skills To Section"
+              }
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "55"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"37-BDF+bEW5qu3YpMkK5Aem9QZl0PA\""
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept-Encoding"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Fri, 01 Oct 2021 11:03:59 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Keep-Alive": {
+                "type": "string",
+                "default": "timeout=5"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/section/skill/5f9185c60800924ed7c4d3cc": {
+      "get": {
+        "summary": "Get skill behaviour",
+        "tags": ["Section"],
+        "operationId": "Getskillbehaviour",
+        "deprecated": false,
+        "produces": ["application/json; charset=utf-8"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "default": "",
+              "items": {
+                "$ref": "#/definitions/Getskillbehaviour"
+              }
+            },
+            "examples": {
+              "application/json; charset=utf-8": [
+                {
+                  "_id": "5fa26ccdc113d5001781c9f1",
+                  "name": "Handwriting",
+                  "school": "5f9183cad035174e94992476",
+                  "__v": 0
+                }
+              ]
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "101"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"65-m3Gq+UbaOoO4mMVtknbZJYZ3eMY\""
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept-Encoding"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Fri, 01 Oct 2021 11:08:41 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Keep-Alive": {
+                "type": "string",
+                "default": "timeout=5"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/section/skill/remove": {
+      "post": {
+        "summary": "Remove skill to Section",
+        "tags": ["Section"],
+        "operationId": "RemoveskilltoSection",
+        "deprecated": false,
+        "produces": ["application/json; charset=utf-8"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RemoveskilltoSectionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/RemoveskilltoSection"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "title": "success",
+                "message": "Removed Skills To Section"
+              }
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "57"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"39-jzkbGD2v1hOe/x3a0orv1IuR80o\""
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept-Encoding"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Fri, 01 Oct 2021 11:09:19 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Keep-Alive": {
+                "type": "string",
+                "default": "timeout=5"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/behaviour": {
+      "post": {
+        "summary": "Create Behaviour",
+        "tags": ["Behaviours"],
+        "operationId": "CreateBehaviour",
+        "deprecated": false,
+        "produces": ["application/json; charset=utf-8"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreateBehaviourRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CreateBehaviour"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "status": "Success",
+                "message": "Create Skill LoCa Successfully "
+              }
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "64"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"40-4JBlX6SOq8hLDn8Z95Gtt5GyTVg\""
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept-Encoding"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Wed, 29 Sep 2021 12:28:04 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Keep-Alive": {
+                "type": "string",
+                "default": "timeout=5"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Behaviour",
+        "tags": ["Behaviours"],
+        "operationId": "DeleteBehaviour",
+        "deprecated": false,
+        "produces": ["application/json; charset=utf-8"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/DeleteBehaviourRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DeleteBehaviour"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "message": "Deleted Behaviour With Name Teaching"
+              }
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "50"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"32-sq24iklXCnYJgXXIWr9DPiNimRg\""
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept-Encoding"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Wed, 29 Sep 2021 13:41:55 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Keep-Alive": {
+                "type": "string",
+                "default": "timeout=5"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/behaviour/5f9183cad035174e94992476": {
+      "get": {
+        "summary": "Get all behaviour",
+        "tags": ["Behaviours"],
+        "operationId": "Getallbehaviour",
+        "deprecated": false,
+        "produces": ["application/json; charset=utf-8"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "default": "",
+              "items": {
+                "$ref": "#/definitions/Getallbehaviour"
+              }
+            },
+            "examples": {
+              "application/json; charset=utf-8": [
+                {
+                  "_id": "5fa26ec7c113d5001781c9f4",
+                  "name": "Teaching",
+                  "school": "5f9183cad035174e94992476",
+                  "__v": 0
+                }
+              ]
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "98"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"62-CKSaFX1huJksQONRwAEecsHGLtE\""
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept-Encoding"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Wed, 29 Sep 2021 13:32:49 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Keep-Alive": {
+                "type": "string",
+                "default": "timeout=5"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/skill": {
+      "post": {
+        "summary": "Create Skill",
+        "tags": ["Skills"],
+        "operationId": "CreateSkill",
+        "deprecated": false,
+        "produces": ["application/json; charset=utf-8"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreateSkillRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CreateSkill"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "status": "Success",
+                "message": "Create Skill Talking Successfully"
+              }
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "66"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"42-Q0/EBBhcdiE/DBlEOK2pFWYOH5k\""
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept-Encoding"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Wed, 29 Sep 2021 17:06:16 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Keep-Alive": {
+                "type": "string",
+                "default": "timeout=5"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Skill",
+        "tags": ["Skills"],
+        "operationId": "DeleteSkill",
+        "deprecated": false,
+        "produces": ["application/json; charset=utf-8"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/DeleteSkillRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DeleteSkill"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "message": "Deleted Skill With Name Talking"
+              }
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "45"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"2d-QFklHi0X3nhMe5k2rWvOhre6XGA\""
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept-Encoding"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Wed, 29 Sep 2021 17:06:59 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Keep-Alive": {
+                "type": "string",
+                "default": "timeout=5"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/skill/5f9183cad035174e94992476": {
+      "get": {
+        "summary": "Get All Skills",
+        "tags": ["Skills"],
+        "operationId": "GetAllSkills",
+        "deprecated": false,
+        "produces": ["application/json; charset=utf-8"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "default": "",
+              "items": {
+                "$ref": "#/definitions/GetAllSkill"
+              }
+            },
+            "examples": {
+              "application/json; charset=utf-8": [
+                {
+                  "_id": "5fa26ccdc113d5001781c9f1",
+                  "name": "Handwriting",
+                  "school": "5f9183cad035174e94992476",
+                  "__v": 0
+                },
+                {
+                  "_id": "5fa26d11c113d5001781c9f2",
+                  "name": "Musical Skills",
+                  "school": "5f9183cad035174e94992476",
+                  "__v": 0
+                },
+                {
+                  "_id": "5fa26d28c113d5001781c9f3",
+                  "name": "Drawing & Tool",
+                  "school": "5f9183cad035174e94992476",
+                  "__v": 0
+                },
+                {
+                  "_id": "61549d08e846868796bc6c6f",
+                  "name": "Talking",
+                  "school": "5f9183cad035174e94992476",
+                  "__v": 0
+                }
+              ]
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "403"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"193-2NCdOlBVaWwW0rMh1v31R9bzkDs\""
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept-Encoding"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Wed, 29 Sep 2021 17:06:27 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Keep-Alive": {
+                "type": "string",
+                "default": "timeout=5"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/class": {
+      "post": {
+        "summary": "Create Class",
+        "tags": ["Class"],
+        "operationId": "CreateClass",
+        "deprecated": false,
+        "produces": ["application/json; charset=utf-8"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreateClassRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CreateClass"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "status": "Success",
+                "message": "Create User Successfully "
+              }
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "58"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"3a-MFHDolM8tzSC5uCGTzeVM1YzcpM\""
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept-Encoding"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Fri, 01 Oct 2021 16:05:30 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Keep-Alive": {
+                "type": "string",
+                "default": "timeout=5"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/class/5f8c7ee1b9776e05f105a6db": {
+      "get": {
+        "summary": "Class",
+        "tags": ["Class"],
+        "operationId": "Class",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/class/subject/add": {
+      "post": {
+        "summary": "Add Subject",
+        "tags": ["Class"],
+        "operationId": "AddSubject",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AddSubjectRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/class/subject/5f902efb9dafe11137c5ffb1": {
+      "get": {
+        "summary": "Class  Subjject",
+        "tags": ["Class"],
+        "operationId": "ClassSubjject",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/class/subject/remove": {
+      "post": {
+        "summary": "Remove Subject",
+        "tags": ["Class"],
+        "operationId": "RemoveSubject",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RemoveSubjectRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/class/test/add": {
+      "post": {
+        "summary": "Add Class Test",
+        "tags": ["Class"],
+        "operationId": "AddClassTest",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AddClassTestRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/class/test/5f902efb9dafe11137c5ffb1": {
+      "get": {
+        "summary": "Class Test",
+        "tags": ["Class"],
+        "operationId": "ClassTest",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/class/test/remove": {
+      "post": {
+        "summary": "Remove Test",
+        "tags": ["Class"],
+        "operationId": "RemoveTest",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RemoveTestRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/arm": {
+      "post": {
+        "summary": "create Arm",
+        "tags": ["Arm"],
+        "operationId": "createArm",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/createArmRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/arm/5f8c7ee1b9776e05f105a6db": {
+      "get": {
+        "summary": "get schools",
+        "tags": ["Arm"],
+        "operationId": "getschools",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/arm/student/5f91165f12f9122febfd5dcf": {
+      "get": {
+        "summary": "get All Student in arm",
+        "tags": ["Arm"],
+        "operationId": "getAllStudentinarm",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/subject": {
+      "post": {
+        "summary": "Create Subject'",
+        "tags": ["Subject"],
+        "operationId": "CreateSubject'",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreateSubject%27Request"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/subject/5f8c7ee1b9776e05f105a6db": {
+      "get": {
+        "summary": "Subject",
+        "tags": ["Subject"],
+        "operationId": "Subject",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/test": {
+      "post": {
+        "summary": "Create test",
+        "tags": ["Test"],
+        "operationId": "Createtest",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreatetestRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/test/5f8c7ee1b9776e05f105a6db": {
+      "get": {
+        "summary": "Test",
+        "tags": ["Test"],
+        "operationId": "Test",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/class/test/5f902e9b9dafe11137c5ffb0": {
+      "get": {
+        "summary": "http://localhost:4000/class/test/5f902e9b9dafe11137c5ffb0",
+        "tags": ["Test"],
+        "operationId": "http://localhost:4000/class/test/5f902e9b9dafe11137c5ffb0",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/result/caSheet/all/subject": {
+      "post": {
+        "summary": "Continuos Assessment Sheet All Subject",
+        "tags": ["Test"],
+        "operationId": "ContinuosAssessmentSheetAllSubject",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ContinuosAssessmentSheetAllSubjectRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/result/caSheet/single/subject": {
+      "post": {
+        "summary": "Continuos Assessment Sheet Single Subject",
+        "tags": ["Test"],
+        "operationId": "ContinuosAssessmentSheetSingleSubject",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ContinuosAssessmentSheetSingleSubjectRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/designation": {
+      "post": {
+        "summary": "create department",
+        "tags": ["Desination"],
+        "operationId": "createdepartment",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/createdepartmentrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/designation/5f8c7ee1b9776e05f105a6db": {
+      "get": {
+        "summary": "Get all department",
+        "tags": ["Desination"],
+        "operationId": "Getalldepartment",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/designation/edit": {
+      "post": {
+        "summary": "edit designation",
+        "tags": ["Desination"],
+        "operationId": "editdesignation",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/editdesignationrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/student": {
+      "post": {
+        "summary": "create Student",
+        "tags": ["Student"],
+        "operationId": "createStudent",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/createStudentRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/student/edit": {
+      "post": {
+        "summary": "edit Student",
+        "tags": ["Student"],
+        "operationId": "editStudent",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/editStudentRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/login/student": {
+      "post": {
+        "summary": "login student",
+        "tags": ["Student"],
+        "operationId": "loginstudent",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/loginstudentrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/student/resetPassword": {
+      "post": {
+        "summary": "reset password",
+        "tags": ["Student"],
+        "operationId": "resetpassword",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/resetpasswordrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/student/5f8c7ee1b9776e05f105a6db": {
+      "get": {
+        "summary": "get schools",
+        "tags": ["Student"],
+        "operationId": "Getgetschools",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/student/score/behaviour/add": {
+      "post": {
+        "summary": "add single student  behaviour score",
+        "tags": ["Student"],
+        "operationId": "addsinglestudentbehaviourscore",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/addsinglestudentbehaviourscorerequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/student/score/skill/add": {
+      "post": {
+        "summary": "add single student  behaviour score Copy",
+        "tags": ["Student"],
+        "operationId": "addsinglestudentbehaviourscoreCopy",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/addsinglestudentbehaviourscoreCopyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/student/score/test/add": {
+      "post": {
+        "summary": "add single student test score",
+        "tags": ["Student"],
+        "operationId": "addsinglestudenttestscore",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/addsinglestudenttestscorerequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/student/subject/score/test/5f97f8f9178df521e4b7b3b4": {
+      "get": {
+        "summary": "get Student Subject and score",
+        "tags": ["Student"],
+        "operationId": "getStudentSubjectandscore",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/student/arm/subject/score": {
+      "post": {
+        "summary": "getArm Student Subject and score",
+        "tags": ["Student"],
+        "operationId": "getArmStudentSubjectandscore",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/getArmStudentSubjectandscoreRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/student/arm/subject/score/all": {
+      "post": {
+        "summary": "get all Student Subject and score in arm",
+        "tags": ["Student"],
+        "operationId": "getallStudentSubjectandscoreinarm",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/getallStudentSubjectandscoreinarmRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/student/subject/score/save": {
+      "post": {
+        "summary": "Save Students score by subject",
+        "tags": ["Student"],
+        "operationId": "SaveStudentsscorebysubject",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SaveStudentsscorebysubjectRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/student/arm/behaviour/score": {
+      "post": {
+        "summary": "get student behaviour score",
+        "tags": ["Student"],
+        "operationId": "getstudentbehaviourscore",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/getstudentbehaviourscorerequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/student/arm/behaviour/score/save": {
+      "post": {
+        "summary": "save student behaviour score",
+        "tags": ["Student"],
+        "operationId": "savestudentbehaviourscore",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/savestudentbehaviourscorerequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/student/arm/skill/score": {
+      "post": {
+        "summary": "get student skill score",
+        "tags": ["Student"],
+        "operationId": "getstudentskillscore",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/getstudentskillscorerequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/student/arm/skill/score/save": {
+      "post": {
+        "summary": "save student skill score",
+        "tags": ["Student"],
+        "operationId": "savestudentskillscore",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/savestudentskillscorerequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/graph/class/total/5f8c7ee1b9776e05f105a6db": {
+      "get": {
+        "summary": "get score total",
+        "tags": ["Student"],
+        "operationId": "getscoretotal",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/student/admissionNumber/biia-student-2020-0": {
+      "get": {
+        "summary": "get student by admissionNumber",
+        "tags": ["Student"],
+        "operationId": "getstudentbyadmissionNumber",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/student/validate/5f902f459dafe11137c5ffb2/5f91165f12f9122febfd5dcf/5f97f266c1139d1d6939ca57": {
+      "get": {
+        "summary": "validate score by subject",
+        "tags": ["Student"],
+        "operationId": "validatescorebysubject",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/student/validate/5f902f459dafe11137c5ffb2/5f91165f12f9122febfd5dcf": {
+      "get": {
+        "summary": "validate result by Arm",
+        "tags": ["Student"],
+        "operationId": "validateresultbyArm",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/student/result/compute/5f902f459dafe11137c5ffb2/5f91165f12f9122febfd5dcf": {
+      "get": {
+        "summary": "Compute result",
+        "tags": ["Student"],
+        "operationId": "Computeresult",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/student/behaviour/compute/5f902f459dafe11137c5ffb2/5f91165f12f9122febfd5dcf": {
+      "get": {
+        "summary": "Compute behaviour result",
+        "tags": ["Student"],
+        "operationId": "Computebehaviourresult",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/student/skill/compute/5f902f459dafe11137c5ffb2/5f91165f12f9122febfd5dcf": {
+      "get": {
+        "summary": "Compute skill result",
+        "tags": ["Student"],
+        "operationId": "Computeskillresult",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/student/classAndArm": {
+      "get": {
+        "summary": "get Student  current Class and Arm",
+        "tags": ["Student"],
+        "operationId": "getStudentcurrentClassandArm",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/result/compute": {
+      "post": {
+        "summary": "compute result",
+        "tags": ["Result"],
+        "operationId": "computeresult",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/computeresultrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/result/recompute": {
+      "post": {
+        "summary": "recompute result",
+        "tags": ["Result"],
+        "operationId": "recomputeresult",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/recomputeresultrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/result/compute/behaviour": {
+      "post": {
+        "summary": "compute behaviour result",
+        "tags": ["Result"],
+        "operationId": "computebehaviourresult",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/computebehaviourresultrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/result/recompute/behaviour": {
+      "post": {
+        "summary": "recompute behaviour result",
+        "tags": ["Result"],
+        "operationId": "recomputebehaviourresult",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/recomputebehaviourresultrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/result/compute/skill": {
+      "post": {
+        "summary": "compute skill result",
+        "tags": ["Result"],
+        "operationId": "computeskillresult",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/computeskillresultrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/result/recompute/skill": {
+      "post": {
+        "summary": "recompute skill result",
+        "tags": ["Result"],
+        "operationId": "recomputeskillresult",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/recomputeskillresultrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/result/printResult/arm": {
+      "post": {
+        "summary": "Print Result For Arm",
+        "tags": ["Result"],
+        "operationId": "PrintResultForArm",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PrintResultForArmRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/result/addNotice": {
+      "put": {
+        "summary": "Add Notice",
+        "tags": ["Result"],
+        "operationId": "AddNotice",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AddNoticeRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/result/removeNotice": {
+      "delete": {
+        "summary": "Delete Notice",
+        "tags": ["Result"],
+        "operationId": "DeleteNotice",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/DeleteNoticeRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/result/notice/5f8c7ee1b9776e05f105a6db": {
+      "get": {
+        "summary": "Get  Notice",
+        "tags": ["Result"],
+        "operationId": "GetNotice",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/result/promote": {
+      "post": {
+        "summary": "Promote By result",
+        "tags": ["Result"],
+        "operationId": "PromoteByresult",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PromoteByresultRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/result/graduate": {
+      "post": {
+        "summary": "Gradute result",
+        "tags": ["Result"],
+        "operationId": "Graduteresult",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/GraduteresultRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/result/previous": {
+      "post": {
+        "summary": "previous result",
+        "tags": ["Result"],
+        "operationId": "previousresult",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/previousresultrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/staff": {
+      "post": {
+        "summary": "create Student",
+        "tags": ["Staff"],
+        "operationId": "PostcreateStudent",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/createStudentRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/staff/5f8c7ee1b9776e05f105a6db": {
+      "get": {
+        "summary": "get schools",
+        "tags": ["Staff"],
+        "operationId": "Getgetschools1",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/login/staff": {
+      "post": {
+        "summary": "login student",
+        "tags": ["Staff"],
+        "operationId": "Postloginstudent",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/loginstudentrequest1"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/staff/resetPassword": {
+      "post": {
+        "summary": "reset password",
+        "tags": ["Staff"],
+        "operationId": "Postresetpassword",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/resetpasswordrequest1"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/staff/regNumber/biia-staff-0": {
+      "get": {
+        "summary": "get student by reg number",
+        "tags": ["Staff"],
+        "operationId": "getstudentbyregnumber",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/department": {
+      "post": {
+        "summary": "create department",
+        "tags": ["Department"],
+        "operationId": "Postcreatedepartment",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/createdepartmentrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/department/5f8c7ee1b9776e05f105a6db": {
+      "get": {
+        "summary": "Get all department",
+        "tags": ["Department"],
+        "operationId": "Getalldepartment1",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/department/edit": {
+      "post": {
+        "summary": "edit department",
+        "tags": ["Department"],
+        "operationId": "editdepartment",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/editdepartmentrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/sms/balance": {
+      "get": {
+        "summary": "get sms balance",
+        "tags": ["Sms"],
+        "operationId": "getsmsbalance",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/sms/allstudent": {
+      "get": {
+        "summary": "get all student phone number",
+        "tags": ["Sms"],
+        "operationId": "getallstudentphonenumber",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/sms/class/5f902f459dafe11137c5ffb2": {
+      "get": {
+        "summary": "get all student phone number in class",
+        "tags": ["Sms"],
+        "operationId": "getallstudentphonenumberinclass",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/sms/arm/5f902f459dafe11137c5ffb2/5f91165f12f9122febfd5dcf": {
+      "get": {
+        "summary": "get all student phone number in class and arm",
+        "tags": ["Sms"],
+        "operationId": "getallstudentphonenumberinclassandarm",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/sms/send": {
+      "post": {
+        "summary": "Send Sms",
+        "tags": ["Sms"],
+        "operationId": "SendSms",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SendSmsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/sms/get": {
+      "post": {
+        "summary": "Get Sms",
+        "tags": ["Sms"],
+        "operationId": "GetSms",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/GetSmsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/ScratchCard/generate": {
+      "post": {
+        "summary": "generateScratchCard",
+        "tags": ["ScratchCard"],
+        "operationId": "generateScratchCard",
+        "deprecated": false,
+        "produces": ["application/json; charset=utf-8"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/generateScratchCardRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/generateScratchCard"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "title": "success",
+                "message": "Generate scratch cards successfully"
+              }
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "67"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"43-KsAFQFTYiEBOnx7CRrpj71nlAvw\""
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept-Encoding"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Tue, 28 Sep 2021 14:29:29 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Keep-Alive": {
+                "type": "string",
+                "default": "timeout=5"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ScratchCard/5f9183cad035174e94992476": {
+      "get": {
+        "summary": "get ScratchCard",
+        "tags": ["ScratchCard"],
+        "operationId": "getScratchCard",
+        "deprecated": false,
+        "produces": ["application/json; charset=utf-8"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "default": "",
+              "items": {
+                "$ref": "#/definitions/getScratchCard"
+              }
+            },
+            "examples": {
+              "application/json; charset=utf-8": [
+                {
+                  "_id": "615326c963cda80d59c473e6",
+                  "used": false,
+                  "generatedDataAndTime": "2021-09-28T13:56:30.075Z",
+                  "pin": "322755312803",
+                  "serialNumber": "1e8f2fd2-c596-4c9c-8b81-abfd32153380",
+                  "amount": 400,
+                  "school": "5f9183cad035174e94992476",
+                  "__v": 0
+                }
+              ]
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "231"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"e7-sc7BRMjrKcCY//PM/Ewd5vlVgZM\""
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept-Encoding"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Tue, 28 Sep 2021 14:29:37 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Keep-Alive": {
+                "type": "string",
+                "default": "timeout=5"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Scratchcard/use": {
+      "post": {
+        "summary": "useScratchCard",
+        "tags": ["ScratchCard"],
+        "operationId": "useScratchCard",
+        "deprecated": false,
+        "produces": ["application/json; charset=utf-8"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/useScratchCardRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/useScratchCard"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "title": "Success",
+                "message": "Successful used pin "
+              }
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "52"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"34-pIIHSCHrec4EDRZ4crtNHmGHiYc\""
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept-Encoding"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Tue, 28 Sep 2021 14:30:47 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Keep-Alive": {
+                "type": "string",
+                "default": "timeout=5"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ScratchCard/used/5f9183cad035174e94992476": {
+      "get": {
+        "summary": "get used ScratchCard",
+        "tags": ["ScratchCard"],
+        "operationId": "getusedScratchCard",
+        "deprecated": false,
+        "produces": ["application/json; charset=utf-8"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "default": "",
+              "items": {
+                "$ref": "#/definitions/getusedScratchCard"
+              }
+            },
+            "examples": {
+              "application/json; charset=utf-8": [
+                {
+                  "_id": "615326c963cda80d59c473e6",
+                  "used": true,
+                  "generatedDataAndTime": "2021-09-28T13:56:30.075Z",
+                  "pin": "322755312803",
+                  "serialNumber": "1e8f2fd2-c596-4c9c-8b81-abfd32153380",
+                  "amount": 400,
+                  "school": "5f9183cad035174e94992476",
+                  "__v": 0
+                }
+              ]
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "230"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"e6-lTyvAkkcyHrO63c8wcqQiwlJSWI\""
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept-Encoding"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Tue, 28 Sep 2021 14:31:00 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Keep-Alive": {
+                "type": "string",
+                "default": "timeout=5"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ScratchCard/stats/5f9183cad035174e94992476": {
+      "get": {
+        "summary": "get ScratchCard  stats",
+        "tags": ["ScratchCard"],
+        "operationId": "getScratchCardstats",
+        "deprecated": false,
+        "produces": ["application/json; charset=utf-8"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/getScratchCardstats"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "totalScratchCard": 2,
+                "totalUsedScratchCard": 1,
+                "totalNotUsedScratchCard": 1
+              }
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "75"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"4b-dRfQs6RDJ57mqjv/p1l01N31cso\""
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept-Encoding"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Tue, 28 Sep 2021 14:31:11 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Keep-Alive": {
+                "type": "string",
+                "default": "timeout=5"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Scratchcard/1e8f2fd2-c596-4c9c-8b81-abfd32153380": {
+      "delete": {
+        "summary": "delete used cards",
+        "tags": ["ScratchCard"],
+        "operationId": "deleteusedcards",
+        "deprecated": false,
+        "produces": ["application/json; charset=utf-8"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/deleteusedcards"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "title": "Success",
+                "message": "Successful Deleted Pin "
+              }
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Access-Control-Allow-Origin": {
+                "type": "string",
+                "default": "*"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "55"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"37-C74jpetX9b01+okHPRYnidO9zAs\""
+              },
+              "Vary": {
+                "type": "string",
+                "default": "Accept-Encoding"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Tue, 28 Sep 2021 14:32:26 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Keep-Alive": {
+                "type": "string",
+                "default": "timeout=5"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "summary": "http://localhost:3000/",
+        "tags": ["Misc"],
+        "operationId": "http://localhost:3000/",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "createschoolrequest": {
+      "title": "createschoolrequest",
+      "example": {
+        "name": "Test",
+        "prefix": "XAx",
+        "address": "Angwan Tomato, Gauraka, Tafa L.G.A, Niger State",
+        "phoneNumber": "+2348034055074",
+        "email": "email"
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "prefix": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      },
+      "required": ["name", "prefix", "address", "phoneNumber", "email"]
+    },
+    "createschool": {
+      "title": "createschool",
+      "example": {
+        "message": "Created School"
+      },
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": ["message"]
+    },
+    "DuplicateError1": {
+      "title": "DuplicateError1",
+      "example": {
+        "title": "Duplicate Error",
+        "message": "School with this name or prefix exist"
+      },
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": ["title", "message"]
+    },
+    "School": {
+      "title": "School",
+      "example": {
+        "_id": "5f9183cad035174e94992476",
+        "name": "Brilliant Imapct School",
+        "schoolPrefix": "BIIA",
+        "address": "Angwan Tomato, Gauraka, Tafa L.G.A, Niger State ",
+        "phoneNumber": "+2348034055074",
+        "email": "dandynamicx@gmail.com",
+        "schoolId": "BIIA385589",
+        "__v": 1,
+        "section": "2020/2021",
+        "term": "First",
+        "faceBookBio": "https://facebook.com/",
+        "images": [],
+        "instagramBio": "https://www.instagram.com",
+        "notice": [],
+        "openedDays": 0,
+        "previousSchoolSection": ["2021/2022"],
+        "schoolImageAsBlob": " ",
+        "twitterBio": "https://twitter.com",
+        "youtubeBio": "https://youtube.com/"
+      },
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "schoolPrefix": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "schoolId": {
+          "type": "string"
+        },
+        "__v": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "section": {
+          "type": "string"
+        },
+        "term": {
+          "type": "string"
+        },
+        "faceBookBio": {
+          "type": "string"
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "instagramBio": {
+          "type": "string"
+        },
+        "notice": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "openedDays": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "previousSchoolSection": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "schoolImageAsBlob": {
+          "type": "string"
+        },
+        "twitterBio": {
+          "type": "string"
+        },
+        "youtubeBio": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "_id",
+        "name",
+        "schoolPrefix",
+        "address",
+        "phoneNumber",
+        "email",
+        "schoolId",
+        "__v",
+        "section",
+        "term",
+        "faceBookBio",
+        "images",
+        "instagramBio",
+        "notice",
+        "openedDays",
+        "previousSchoolSection",
+        "schoolImageAsBlob",
+        "twitterBio",
+        "youtubeBio"
+      ]
+    },
+    "getschoolsettings": {
+      "title": "getschoolsettings",
+      "example": {
+        "_id": "5f9183cad035174e94992476",
+        "name": "Brilliant Imapct School",
+        "schoolPrefix": "BIIA",
+        "address": "Angwan Tomato, Gauraka, Tafa L.G.A, Niger State ",
+        "phoneNumber": "+2348034055074",
+        "email": "dandynamicx@gmail.com",
+        "schoolId": "BIIA385589",
+        "__v": 1,
+        "section": "2020/2021",
+        "term": "First",
+        "faceBookBio": "https://facebook.com/",
+        "images": [],
+        "instagramBio": "https://www.instagram.com",
+        "notice": [],
+        "openedDays": 0,
+        "previousSchoolSection": ["2021/2022"],
+        "schoolImageAsBlob": " ",
+        "twitterBio": "https://twitter.com",
+        "youtubeBio": "https://youtube.com/"
+      },
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "schoolPrefix": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "schoolId": {
+          "type": "string"
+        },
+        "__v": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "section": {
+          "type": "string"
+        },
+        "term": {
+          "type": "string"
+        },
+        "faceBookBio": {
+          "type": "string"
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "instagramBio": {
+          "type": "string"
+        },
+        "notice": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "openedDays": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "previousSchoolSection": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "schoolImageAsBlob": {
+          "type": "string"
+        },
+        "twitterBio": {
+          "type": "string"
+        },
+        "youtubeBio": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "_id",
+        "name",
+        "schoolPrefix",
+        "address",
+        "phoneNumber",
+        "email",
+        "schoolId",
+        "__v",
+        "section",
+        "term",
+        "faceBookBio",
+        "images",
+        "instagramBio",
+        "notice",
+        "openedDays",
+        "previousSchoolSection",
+        "schoolImageAsBlob",
+        "twitterBio",
+        "youtubeBio"
+      ]
+    },
+    "editschoolsettingsrequest": {
+      "title": "editschoolsettingsrequest",
+      "example": {
+        "school": "5f9183cad035174e94992476",
+        "name": "Brilliant Imapct School",
+        "schoolPrefix": "BIIA",
+        "address": "Angwan Tomato, Gauraka, Tafa L.G.A, Niger State ",
+        "phoneNumber": "+2348034055074",
+        "email": "dandynamicx@gmail.com",
+        "schoolId": "BIIA385589",
+        "__v": 1,
+        "section": "2020/2021",
+        "term": "First",
+        "faceBookBio": "https://facebook.com/",
+        "images": [],
+        "instagramBio": "https://www.instagram.com",
+        "notice": [],
+        "openedDays": 0,
+        "previousSchoolSection": ["2021/2022"],
+        "schoolImageAsBlob": " ",
+        "twitterBio": "https://twitter.com",
+        "youtubeBio": "https://youtube.com/"
+      },
+      "type": "object",
+      "properties": {
+        "school": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "schoolPrefix": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "schoolId": {
+          "type": "string"
+        },
+        "__v": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "section": {
+          "type": "string"
+        },
+        "term": {
+          "type": "string"
+        },
+        "faceBookBio": {
+          "type": "string"
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "instagramBio": {
+          "type": "string"
+        },
+        "notice": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "openedDays": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "previousSchoolSection": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "schoolImageAsBlob": {
+          "type": "string"
+        },
+        "twitterBio": {
+          "type": "string"
+        },
+        "youtubeBio": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "school",
+        "name",
+        "schoolPrefix",
+        "address",
+        "phoneNumber",
+        "email",
+        "schoolId",
+        "__v",
+        "section",
+        "term",
+        "faceBookBio",
+        "images",
+        "instagramBio",
+        "notice",
+        "openedDays",
+        "previousSchoolSection",
+        "schoolImageAsBlob",
+        "twitterBio",
+        "youtubeBio"
+      ]
+    },
+    "editschoolsettings": {
+      "title": "editschoolsettings",
+      "example": {
+        "message": "Saved Setting "
+      },
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": ["message"]
+    },
+    "DeleteSchoolRequest": {
+      "title": "DeleteSchoolRequest",
+      "example": {
+        "school": "615437fdbe92a442dca122ff"
+      },
+      "type": "object",
+      "properties": {
+        "school": {
+          "type": "string"
+        }
+      },
+      "required": ["school"]
+    },
+    "DeleteSchool": {
+      "title": "DeleteSchool",
+      "example": {
+        "message": "Deleted School With Name Test"
+      },
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": ["message"]
+    },
+    "CreateSectionRequest": {
+      "title": "CreateSectionRequest",
+      "example": {
+        "section": "Primary test",
+        "school": "5f9183cad035174e94992476"
+      },
+      "type": "object",
+      "properties": {
+        "section": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        }
+      },
+      "required": ["section", "school"]
+    },
+    "CreateSection": {
+      "title": "CreateSection",
+      "example": {
+        "status": "Success",
+        "message": "Create Section Successfully "
+      },
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": ["status", "message"]
+    },
+    "getsection": {
+      "title": "getsection",
+      "example": {
+        "_id": "5f9185c60800924ed7c4d3cc",
+        "section": "Primary Section",
+        "school": "5f9183cad035174e94992476",
+        "__v": 4,
+        "behaviors": ["5fa26ec7c113d5001781c9f4"],
+        "skills": []
+      },
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "section": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        },
+        "__v": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "behaviors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "skills": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": ["_id", "section", "school", "__v"]
+    },
+    "DeleteSectionRequest": {
+      "title": "DeleteSectionRequest",
+      "example": {
+        "sectionId": "6156f7ec30756926f4a5d8aa"
+      },
+      "type": "object",
+      "properties": {
+        "sectionId": {
+          "type": "string"
+        }
+      },
+      "required": ["sectionId"]
+    },
+    "DeleteSection": {
+      "title": "DeleteSection",
+      "example": {
+        "title": "success",
+        "message": "Deleted Baby section Section  "
+      },
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": ["title", "message"]
+    },
+    "AddBehaviourtoSectionRequest": {
+      "title": "AddBehaviourtoSectionRequest",
+      "example": {
+        "sectionId": "5f9185c60800924ed7c4d3cc",
+        "behaviour": ["61546ebcf8a89678e0309a87"]
+      },
+      "type": "object",
+      "properties": {
+        "sectionId": {
+          "type": "string"
+        },
+        "behaviour": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": ["sectionId", "behaviour"]
+    },
+    "AddBehaviourtoSection": {
+      "title": "AddBehaviourtoSection",
+      "example": {
+        "title": "success",
+        "message": "Added Behaviour To Section"
+      },
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": ["title", "message"]
+    },
+    "GetSectionbehaviour": {
+      "title": "GetSectionbehaviour",
+      "example": {
+        "_id": "61546ebcf8a89678e0309a87",
+        "name": "LoCa",
+        "school": "5f9183cad035174e94992476",
+        "__v": 0
+      },
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        },
+        "__v": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": ["_id", "name", "school", "__v"]
+    },
+    "RemoveBehaviourtoSectionRequest": {
+      "title": "RemoveBehaviourtoSectionRequest",
+      "example": {
+        "sectionId": "5f9185c60800924ed7c4d3cc",
+        "behaviour": ["61546ebcf8a89678e0309a87"]
+      },
+      "type": "object",
+      "properties": {
+        "sectionId": {
+          "type": "string"
+        },
+        "behaviour": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": ["sectionId", "behaviour"]
+    },
+    "RemoveBehaviourtoSection": {
+      "title": "RemoveBehaviourtoSection",
+      "example": {
+        "title": "success",
+        "message": "Removed Behaviors To Section"
+      },
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": ["title", "message"]
+    },
+    "AddSkilltoSectionRequest": {
+      "title": "AddSkilltoSectionRequest",
+      "example": {
+        "sectionId": "5f9185c60800924ed7c4d3cc",
+        "skills": ["5fa26ccdc113d5001781c9f1"]
+      },
+      "type": "object",
+      "properties": {
+        "sectionId": {
+          "type": "string"
+        },
+        "skills": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": ["sectionId", "skills"]
+    },
+    "AddSkilltoSection": {
+      "title": "AddSkilltoSection",
+      "example": {
+        "title": "success",
+        "message": "Added Skills To Section"
+      },
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": ["title", "message"]
+    },
+    "Getskillbehaviour": {
+      "title": "Getskillbehaviour",
+      "example": {
+        "_id": "5fa26ccdc113d5001781c9f1",
+        "name": "Handwriting",
+        "school": "5f9183cad035174e94992476",
+        "__v": 0
+      },
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        },
+        "__v": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": ["_id", "name", "school", "__v"]
+    },
+    "RemoveskilltoSectionRequest": {
+      "title": "RemoveskilltoSectionRequest",
+      "example": {
+        "sectionId": "5f9185c60800924ed7c4d3cc",
+        "skills": ["5fa26ccdc113d5001781c9f1"]
+      },
+      "type": "object",
+      "properties": {
+        "sectionId": {
+          "type": "string"
+        },
+        "skills": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": ["sectionId", "skills"]
+    },
+    "RemoveskilltoSection": {
+      "title": "RemoveskilltoSection",
+      "example": {
+        "title": "success",
+        "message": "Removed Skills To Section"
+      },
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": ["title", "message"]
+    },
+    "CreateBehaviourRequest": {
+      "title": "CreateBehaviourRequest",
+      "example": {
+        "name": "LoCa",
+        "school": "5f9183cad035174e94992476"
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        }
+      },
+      "required": ["name", "school"]
+    },
+    "CreateBehaviour": {
+      "title": "CreateBehaviour",
+      "example": {
+        "status": "Success",
+        "message": "Create Skill LoCa Successfully "
+      },
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": ["status", "message"]
+    },
+    "Getallbehaviour": {
+      "title": "Getallbehaviour",
+      "example": {
+        "_id": "5fa26ec7c113d5001781c9f4",
+        "name": "Teaching",
+        "school": "5f9183cad035174e94992476",
+        "__v": 0
+      },
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        },
+        "__v": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": ["_id", "name", "school", "__v"]
+    },
+    "DeleteBehaviourRequest": {
+      "title": "DeleteBehaviourRequest",
+      "example": {
+        "behaviourId": "5fa26ec7c113d5001781c9f4",
+        "school": "5f9183cad035174e94992476"
+      },
+      "type": "object",
+      "properties": {
+        "behaviourId": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        }
+      },
+      "required": ["behaviourId", "school"]
+    },
+    "DeleteBehaviour": {
+      "title": "DeleteBehaviour",
+      "example": {
+        "message": "Deleted Behaviour With Name Teaching"
+      },
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": ["message"]
+    },
+    "CreateSkillRequest": {
+      "title": "CreateSkillRequest",
+      "example": {
+        "name": "Talking",
+        "school": "5f9183cad035174e94992476"
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        }
+      },
+      "required": ["name", "school"]
+    },
+    "CreateSkill": {
+      "title": "CreateSkill",
+      "example": {
+        "status": "Success",
+        "message": "Create Skill Talking Successfully"
+      },
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": ["status", "message"]
+    },
+    "GetAllSkill": {
+      "title": "GetAllSkill",
+      "example": {
+        "_id": "5fa26ccdc113d5001781c9f1",
+        "name": "Handwriting",
+        "school": "5f9183cad035174e94992476",
+        "__v": 0
+      },
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        },
+        "__v": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": ["_id", "name", "school", "__v"]
+    },
+    "DeleteSkillRequest": {
+      "title": "DeleteSkillRequest",
+      "example": {
+        "skillId": "61549d08e846868796bc6c6f",
+        "school": "5f9183cad035174e94992476"
+      },
+      "type": "object",
+      "properties": {
+        "skillId": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        }
+      },
+      "required": ["skillId", "school"]
+    },
+    "DeleteSkill": {
+      "title": "DeleteSkill",
+      "example": {
+        "message": "Deleted Skill With Name Talking"
+      },
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": ["message"]
+    },
+    "CreateClassRequest": {
+      "title": "CreateClassRequest",
+      "example": {
+        "className": "Primary 1",
+        "section": "5f9185c60800924ed7c4d3cc",
+        "school": "5f9183cad035174e94992476"
+      },
+      "type": "object",
+      "properties": {
+        "className": {
+          "type": "string"
+        },
+        "section": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        }
+      },
+      "required": ["className", "section", "school"]
+    },
+    "CreateClass": {
+      "title": "CreateClass",
+      "example": {
+        "status": "Success",
+        "message": "Create User Successfully "
+      },
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": ["status", "message"]
+    },
+    "AddSubjectRequest": {
+      "title": "AddSubjectRequest",
+      "example": {
+        "classId": "5f902efb9dafe11137c5ffb1",
+        "subjects": ["5f97f266c1139d1d6939ca57", "5f9804f3178df521e4b7b3b5"]
+      },
+      "type": "object",
+      "properties": {
+        "classId": {
+          "type": "string"
+        },
+        "subjects": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": ["classId", "subjects"]
+    },
+    "RemoveSubjectRequest": {
+      "title": "RemoveSubjectRequest",
+      "example": {
+        "classId": "5f902efb9dafe11137c5ffb1",
+        "subjects": ["5f97f266c1139d1d6939ca57", "5f9804f3178df521e4b7b3b5"]
+      },
+      "type": "object",
+      "properties": {
+        "classId": {
+          "type": "string"
+        },
+        "subjects": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": ["classId", "subjects"]
+    },
+    "AddClassTestRequest": {
+      "title": "AddClassTestRequest",
+      "example": {
+        "classId": "5f902efb9dafe11137c5ffb1",
+        "tests": [
+          "5fa018c97ec1a2f2f2040418",
+          "5fa018f47ec1a2f2f2040419",
+          "5fa018ff7ec1a2f2f204041a"
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "classId": {
+          "type": "string"
+        },
+        "tests": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": ["classId", "tests"]
+    },
+    "RemoveTestRequest": {
+      "title": "RemoveTestRequest",
+      "example": {
+        "classId": "5f902efb9dafe11137c5ffb1",
+        "tests": ["5f97f266c1139d1d6939ca57", "5f9804f3178df521e4b7b3b5"]
+      },
+      "type": "object",
+      "properties": {
+        "classId": {
+          "type": "string"
+        },
+        "tests": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": ["classId", "tests"]
+    },
+    "createArmRequest": {
+      "title": "createArmRequest",
+      "example": {
+        "arm": "B",
+        "classes": "5f902e9b9dafe11137c5ffb0",
+        "school": "5f8c7ee1b9776e05f105a6db"
+      },
+      "type": "object",
+      "properties": {
+        "arm": {
+          "type": "string"
+        },
+        "classes": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        }
+      },
+      "required": ["arm", "classes", "school"]
+    },
+    "CreateSubject'Request": {
+      "title": "CreateSubject'Request",
+      "example": {
+        "name": "mathmatics",
+        "school": "5f8c7ee1b9776e05f105a6db"
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        }
+      },
+      "required": ["name", "school"]
+    },
+    "CreatetestRequest": {
+      "title": "CreatetestRequest",
+      "example": {
+        "name": "2st Test",
+        "school": "5f8c7ee1b9776e05f105a6db",
+        "marksObtainable": 20,
+        "parentageOfTotal": 20
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        },
+        "marksObtainable": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "parentageOfTotal": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": ["name", "school", "marksObtainable", "parentageOfTotal"]
+    },
+    "ContinuosAssessmentSheetAllSubjectRequest": {
+      "title": "ContinuosAssessmentSheetAllSubjectRequest",
+      "example": {
+        "armId": "5f9bf4b98d391a5dd309bbf7",
+        "classId": "5f902e9b9dafe11137c5ffb0"
+      },
+      "type": "object",
+      "properties": {
+        "armId": {
+          "type": "string"
+        },
+        "classId": {
+          "type": "string"
+        }
+      },
+      "required": ["armId", "classId"]
+    },
+    "ContinuosAssessmentSheetSingleSubjectRequest": {
+      "title": "ContinuosAssessmentSheetSingleSubjectRequest",
+      "example": {
+        "armId": "5f9bf4b98d391a5dd309bbf7",
+        "classId": "5f902e9b9dafe11137c5ffb0",
+        "subjectId": "5f97f266c1139d1d6939ca57"
+      },
+      "type": "object",
+      "properties": {
+        "armId": {
+          "type": "string"
+        },
+        "classId": {
+          "type": "string"
+        },
+        "subjectId": {
+          "type": "string"
+        }
+      },
+      "required": ["armId", "classId", "subjectId"]
+    },
+    "createdepartmentrequest": {
+      "title": "createdepartmentrequest",
+      "example": {
+        "name": "Teacher",
+        "school": "5f8c7ee1b9776e05f105a6db"
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        }
+      },
+      "required": ["name", "school"]
+    },
+    "editdesignationrequest": {
+      "title": "editdesignationrequest",
+      "example": {
+        "designation": "5f9bef710d53e25aef69e4ef",
+        "name": "Class Teacggsg",
+        "school": "5f8c7ee1b9776e05f105a6db",
+        "__v": 0
+      },
+      "type": "object",
+      "properties": {
+        "designation": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        },
+        "__v": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": ["designation", "name", "school", "__v"]
+    },
+    "createStudentRequest": {
+      "title": "createStudentRequest",
+      "example": {
+        "address": "javino gauraka",
+        "admissionDate": "Moment {_isAMomentObject: true, _isUTC: false, _pf: {…}, _locale: Locale, _d: Thu Oct 22 2020 09:16:12 GMT+0100 (West Africa Standard Time), …}",
+        "arm": "5f91167312f9122febfd5dd0",
+        "classN": "5f902f459dafe11137c5ffb2",
+        "confirmPassword": "jj",
+        "dob": "Moment {_isAMomentObject: true, _isUTC: false, _pf: {…}, _locale: Locale, _d: Thu Oct 22 2020 09:16:41 GMT+0100 (West Africa Standard Time), …}",
+        "firstName": "uzendu",
+        "gender": "false",
+        "lga": "Guyuk",
+        "middleName": "jjjjj",
+        "password": "jj",
+        "phoneNumber": "08024968257",
+        "srnName": "jjjjj",
+        "state": "Adamawa",
+        "passport": "",
+        "email": "dandynamicx@gmail.com",
+        "school": "5f8c7ee1b9776e05f105a6db"
+      },
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "admissionDate": {
+          "type": "string"
+        },
+        "arm": {
+          "type": "string"
+        },
+        "classN": {
+          "type": "string"
+        },
+        "confirmPassword": {
+          "type": "string"
+        },
+        "dob": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "lga": {
+          "type": "string"
+        },
+        "middleName": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "srnName": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "passport": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "address",
+        "admissionDate",
+        "arm",
+        "classN",
+        "confirmPassword",
+        "dob",
+        "firstName",
+        "gender",
+        "lga",
+        "middleName",
+        "password",
+        "phoneNumber",
+        "srnName",
+        "state",
+        "passport",
+        "email",
+        "school"
+      ]
+    },
+    "editStudentRequest": {
+      "title": "editStudentRequest",
+      "example": {
+        "admissionNumber": "biia/student/2020/0",
+        "address": "javino gauraka",
+        "admissionDate": "Moment {_isAMomentObject: true, _isUTC: false, _pf: {…}, _locale: Locale, _d: Thu Oct 22 2020 09:16:12 GMT+0100 (West Africa Standard Time), …}",
+        "arm": "5f91167312f9122febfd5dd0",
+        "classN": "5f902f459dafe11137c5ffb2",
+        "confirmPassword": "jj",
+        "dob": "Moment {_isAMomentObject: true, _isUTC: false, _pf: {…}, _locale: Locale, _d: Thu Oct 22 2020 09:16:41 GMT+0100 (West Africa Standard Time), …}",
+        "firstName": "uzendu",
+        "gender": "false",
+        "lga": "Guyuk",
+        "middleName": "jjjjj",
+        "password": "jj",
+        "phoneNumber": "08024968257",
+        "srnName": "jjjjj",
+        "state": "Adamawa",
+        "passport": "",
+        "email": "dandynamicx@gmail.com",
+        "school": "5f8c7ee1b9776e05f105a6db"
+      },
+      "type": "object",
+      "properties": {
+        "admissionNumber": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "admissionDate": {
+          "type": "string"
+        },
+        "arm": {
+          "type": "string"
+        },
+        "classN": {
+          "type": "string"
+        },
+        "confirmPassword": {
+          "type": "string"
+        },
+        "dob": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "lga": {
+          "type": "string"
+        },
+        "middleName": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "srnName": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "passport": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "admissionNumber",
+        "address",
+        "admissionDate",
+        "arm",
+        "classN",
+        "confirmPassword",
+        "dob",
+        "firstName",
+        "gender",
+        "lga",
+        "middleName",
+        "password",
+        "phoneNumber",
+        "srnName",
+        "state",
+        "passport",
+        "email",
+        "school"
+      ]
+    },
+    "loginstudentrequest": {
+      "title": "loginstudentrequest",
+      "example": {
+        "admissionNumber": "biia/student/2020/7",
+        "password": "password1"
+      },
+      "type": "object",
+      "properties": {
+        "admissionNumber": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "required": ["admissionNumber", "password"]
+    },
+    "resetpasswordrequest": {
+      "title": "resetpasswordrequest",
+      "example": {
+        "admissionNumber": "biia/student/2020/2"
+      },
+      "type": "object",
+      "properties": {
+        "admissionNumber": {
+          "type": "string"
+        }
+      },
+      "required": ["admissionNumber"]
+    },
+    "addsinglestudentbehaviourscorerequest": {
+      "title": "addsinglestudentbehaviourscorerequest",
+      "example": {
+        "studentId": "5f97f8f9178df521e4b7b3b4",
+        "behaviourId": "5fa08750ebc90c044f7d111f",
+        "score": 5
+      },
+      "type": "object",
+      "properties": {
+        "studentId": {
+          "type": "string"
+        },
+        "behaviourId": {
+          "type": "string"
+        },
+        "score": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": ["studentId", "behaviourId", "score"]
+    },
+    "addsinglestudentbehaviourscoreCopyRequest": {
+      "title": "addsinglestudentbehaviourscoreCopyRequest",
+      "example": {
+        "studentId": "5f97f8f9178df521e4b7b3b4",
+        "skillId": "5f9fdf0cb37e32e14b571a10",
+        "score": 5
+      },
+      "type": "object",
+      "properties": {
+        "studentId": {
+          "type": "string"
+        },
+        "skillId": {
+          "type": "string"
+        },
+        "score": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": ["studentId", "skillId", "score"]
+    },
+    "addsinglestudenttestscorerequest": {
+      "title": "addsinglestudenttestscorerequest",
+      "example": {
+        "studentId": "5f97f8f9178df521e4b7b3b4",
+        "testId": "5fa018c97ec1a2f2f2040418",
+        "score": 10
+      },
+      "type": "object",
+      "properties": {
+        "studentId": {
+          "type": "string"
+        },
+        "testId": {
+          "type": "string"
+        },
+        "score": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": ["studentId", "testId", "score"]
+    },
+    "getArmStudentSubjectandscoreRequest": {
+      "title": "getArmStudentSubjectandscoreRequest",
+      "example": {
+        "classId": "5f902efb9dafe11137c5ffb1",
+        "armId": "5f933140f8e6556a4f00e076",
+        "testId": "5fa018c97ec1a2f2f2040418",
+        "subjectId": "5fa014967ec1a2f2f2040413"
+      },
+      "type": "object",
+      "properties": {
+        "classId": {
+          "type": "string"
+        },
+        "armId": {
+          "type": "string"
+        },
+        "testId": {
+          "type": "string"
+        },
+        "subjectId": {
+          "type": "string"
+        }
+      },
+      "required": ["classId", "armId", "testId", "subjectId"]
+    },
+    "getallStudentSubjectandscoreinarmRequest": {
+      "title": "getallStudentSubjectandscoreinarmRequest",
+      "example": {
+        "classId": "5f902efb9dafe11137c5ffb1",
+        "armId": "5f933140f8e6556a4f00e076",
+        "testId": "5fa018c97ec1a2f2f2040418"
+      },
+      "type": "object",
+      "properties": {
+        "classId": {
+          "type": "string"
+        },
+        "armId": {
+          "type": "string"
+        },
+        "testId": {
+          "type": "string"
+        }
+      },
+      "required": ["classId", "armId", "testId"]
+    },
+    "SaveStudentsscorebysubjectRequest": {
+      "title": "SaveStudentsscorebysubjectRequest",
+      "example": {
+        "test": {
+          "_id": "5fa018c97ec1a2f2f2040418",
+          "name": "1st ca Test",
+          "school": "5f8c7ee1b9776e05f105a6db",
+          "marksObtainable": 20,
+          "parentageOfTotal": 20
+        },
+        "subject": {
+          "_id": "5f97f266c1139d1d6939ca57",
+          "name": "mathmatics",
+          "school": "5f8c7ee1b9776e05f105a6db"
+        },
+        "students": [
+          {
+            "admissionNumber": "biia/student/2020/7",
+            "hasScore": true,
+            "name": "uzendu  Aliu",
+            "passport": "https://test323hxshs.s3.us-east-2.amazonaws.com/3d2ac82f-3420-4ead-8a8a-6f882a00c3cc.png",
+            "score": 10,
+            "userId": "5f97f8f9178df521e4b7b3b4"
+          },
+          {
+            "admissionNumber": "biia/student/2020/7",
+            "hasScore": true,
+            "name": "uzendu  Aliu",
+            "passport": "https://test323hxshs.s3.us-east-2.amazonaws.com/3d2ac82f-3420-4ead-8a8a-6f882a00c3cc.png",
+            "score": 10,
+            "userId": "5f97f8f9178df521e4b7b3b4"
+          },
+          {
+            "admissionNumber": "biia/student/2020/7",
+            "hasScore": true,
+            "name": "uzendu  Aliu",
+            "passport": "https://test323hxshs.s3.us-east-2.amazonaws.com/3d2ac82f-3420-4ead-8a8a-6f882a00c3cc.png",
+            "score": 10,
+            "userId": "5f97f8f9178df521e4b7b3b4"
+          },
+          {
+            "admissionNumber": "biia/student/2020/7",
+            "hasScore": true,
+            "name": "uzendu  Aliu",
+            "passport": "https://test323hxshs.s3.us-east-2.amazonaws.com/3d2ac82f-3420-4ead-8a8a-6f882a00c3cc.png",
+            "score": 10,
+            "userId": "5f97f8f9178df521e4b7b3b4"
+          },
+          {
+            "admissionNumber": "biia/student/2020/7",
+            "hasScore": true,
+            "name": "uzendu  Aliu",
+            "passport": "https://test323hxshs.s3.us-east-2.amazonaws.com/3d2ac82f-3420-4ead-8a8a-6f882a00c3cc.png",
+            "score": 10,
+            "userId": "5f97f8f9178df521e4b7b3b4"
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "test": {
+          "$ref": "#/definitions/Test"
+        },
+        "subject": {
+          "$ref": "#/definitions/Subject"
+        },
+        "students": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Student"
+          }
+        }
+      },
+      "required": ["test", "subject", "students"]
+    },
+    "Test": {
+      "title": "Test",
+      "example": {
+        "_id": "5fa018c97ec1a2f2f2040418",
+        "name": "1st ca Test",
+        "school": "5f8c7ee1b9776e05f105a6db",
+        "marksObtainable": 20,
+        "parentageOfTotal": 20
+      },
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        },
+        "marksObtainable": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "parentageOfTotal": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "_id",
+        "name",
+        "school",
+        "marksObtainable",
+        "parentageOfTotal"
+      ]
+    },
+    "Subject": {
+      "title": "Subject",
+      "example": {
+        "_id": "5f97f266c1139d1d6939ca57",
+        "name": "mathmatics",
+        "school": "5f8c7ee1b9776e05f105a6db"
+      },
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        }
+      },
+      "required": ["_id", "name", "school"]
+    },
+    "Student": {
+      "title": "Student",
+      "example": {
+        "admissionNumber": "biia/student/2020/7",
+        "hasScore": true,
+        "name": "uzendu  Aliu",
+        "passport": "https://test323hxshs.s3.us-east-2.amazonaws.com/3d2ac82f-3420-4ead-8a8a-6f882a00c3cc.png",
+        "score": 10,
+        "userId": "5f97f8f9178df521e4b7b3b4"
+      },
+      "type": "object",
+      "properties": {
+        "admissionNumber": {
+          "type": "string"
+        },
+        "hasScore": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "passport": {
+          "type": "string"
+        },
+        "score": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "userId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "admissionNumber",
+        "hasScore",
+        "name",
+        "passport",
+        "score",
+        "userId"
+      ]
+    },
+    "getstudentbehaviourscorerequest": {
+      "title": "getstudentbehaviourscorerequest",
+      "example": {
+        "armId": "5f9bf4b98d391a5dd309bbf7",
+        "classId": "5f902e9b9dafe11137c5ffb0"
+      },
+      "type": "object",
+      "properties": {
+        "armId": {
+          "type": "string"
+        },
+        "classId": {
+          "type": "string"
+        }
+      },
+      "required": ["armId", "classId"]
+    },
+    "savestudentbehaviourscorerequest": {
+      "title": "savestudentbehaviourscorerequest",
+      "example": {
+        "userId": "5fa94426c88ca6e94672185a",
+        "admissionNumber": "biia/student/2020/10",
+        "passport": "https://test323hxshs.s3.us-east-2.amazonaws.com/3d2ac82f-3420-4ead-8a8a-6f882a00c3cc.png",
+        "behaviours": [
+          {
+            "name": "Punctuality",
+            "_id": "5fa04ca5ebc90c044f7d111e",
+            "hasScore": true,
+            "score": 1
+          },
+          {
+            "name": "Neatness",
+            "_id": "5fa08750ebc90c044f7d111f",
+            "hasScore": true,
+            "score": 1
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "admissionNumber": {
+          "type": "string"
+        },
+        "passport": {
+          "type": "string"
+        },
+        "behaviours": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Behaviour"
+          }
+        }
+      },
+      "required": ["userId", "admissionNumber", "passport", "behaviours"]
+    },
+    "Behaviour": {
+      "title": "Behaviour",
+      "example": {
+        "name": "Punctuality",
+        "_id": "5fa04ca5ebc90c044f7d111e",
+        "hasScore": true,
+        "score": 1
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "_id": {
+          "type": "string"
+        },
+        "hasScore": {
+          "type": "boolean"
+        },
+        "score": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": ["name", "_id", "hasScore", "score"]
+    },
+    "getstudentskillscorerequest": {
+      "title": "getstudentskillscorerequest",
+      "example": {
+        "armId": "5f933140f8e6556a4f00e076",
+        "classId": "5f902efb9dafe11137c5ffb1",
+        "behaviorId": "5fa04ca5ebc90c044f7d111e",
+        "behaviorName": "Punctuality"
+      },
+      "type": "object",
+      "properties": {
+        "armId": {
+          "type": "string"
+        },
+        "classId": {
+          "type": "string"
+        },
+        "behaviorId": {
+          "type": "string"
+        },
+        "behaviorName": {
+          "type": "string"
+        }
+      },
+      "required": ["armId", "classId", "behaviorId", "behaviorName"]
+    },
+    "savestudentskillscorerequest": {
+      "title": "savestudentskillscorerequest",
+      "example": {
+        "userId": "5fa9441ec88ca6e946721857",
+        "skills": [
+          {
+            "name": "Handwriting",
+            "_id": "5f9fdf0cb37e32e14b571a10",
+            "hasScore": false,
+            "score": 0
+          },
+          {
+            "name": "Fighting",
+            "_id": "5fa097c5ebc90c044f7d1120",
+            "hasScore": false,
+            "score": 0
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "skills": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Skill"
+          }
+        }
+      },
+      "required": ["userId", "skills"]
+    },
+    "Skill": {
+      "title": "Skill",
+      "example": {
+        "name": "Handwriting",
+        "_id": "5f9fdf0cb37e32e14b571a10",
+        "hasScore": false,
+        "score": 0
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "_id": {
+          "type": "string"
+        },
+        "hasScore": {
+          "type": "boolean"
+        },
+        "score": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": ["name", "_id", "hasScore", "score"]
+    },
+    "computeresultrequest": {
+      "title": "computeresultrequest",
+      "example": {
+        "classN": "5f902f459dafe11137c5ffb2",
+        "arm": "5f91165f12f9122febfd5dcf",
+        "school": "5f8c7ee1b9776e05f105a6db"
+      },
+      "type": "object",
+      "properties": {
+        "classN": {
+          "type": "string"
+        },
+        "arm": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        }
+      },
+      "required": ["classN", "arm", "school"]
+    },
+    "recomputeresultrequest": {
+      "title": "recomputeresultrequest",
+      "example": {
+        "classN": "5f902f459dafe11137c5ffb2",
+        "arm": "5f91165f12f9122febfd5dcf",
+        "school": "5f8c7ee1b9776e05f105a6db"
+      },
+      "type": "object",
+      "properties": {
+        "classN": {
+          "type": "string"
+        },
+        "arm": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        }
+      },
+      "required": ["classN", "arm", "school"]
+    },
+    "computebehaviourresultrequest": {
+      "title": "computebehaviourresultrequest",
+      "example": {
+        "classN": "5f902f459dafe11137c5ffb2",
+        "arm": "5f91165f12f9122febfd5dcf",
+        "school": "5f8c7ee1b9776e05f105a6db"
+      },
+      "type": "object",
+      "properties": {
+        "classN": {
+          "type": "string"
+        },
+        "arm": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        }
+      },
+      "required": ["classN", "arm", "school"]
+    },
+    "recomputebehaviourresultrequest": {
+      "title": "recomputebehaviourresultrequest",
+      "example": {
+        "classN": "5f902f459dafe11137c5ffb2",
+        "arm": "5f91165f12f9122febfd5dcf",
+        "school": "5f8c7ee1b9776e05f105a6db"
+      },
+      "type": "object",
+      "properties": {
+        "classN": {
+          "type": "string"
+        },
+        "arm": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        }
+      },
+      "required": ["classN", "arm", "school"]
+    },
+    "computeskillresultrequest": {
+      "title": "computeskillresultrequest",
+      "example": {
+        "classN": "5f902f459dafe11137c5ffb2",
+        "arm": "5f91165f12f9122febfd5dcf",
+        "school": "5f8c7ee1b9776e05f105a6db"
+      },
+      "type": "object",
+      "properties": {
+        "classN": {
+          "type": "string"
+        },
+        "arm": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        }
+      },
+      "required": ["classN", "arm", "school"]
+    },
+    "recomputeskillresultrequest": {
+      "title": "recomputeskillresultrequest",
+      "example": {
+        "classN": "5f902f459dafe11137c5ffb2",
+        "arm": "5f91165f12f9122febfd5dcf",
+        "school": "5f8c7ee1b9776e05f105a6db"
+      },
+      "type": "object",
+      "properties": {
+        "classN": {
+          "type": "string"
+        },
+        "arm": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        }
+      },
+      "required": ["classN", "arm", "school"]
+    },
+    "PrintResultForArmRequest": {
+      "title": "PrintResultForArmRequest",
+      "example": {
+        "classN": "5f902f459dafe11137c5ffb2",
+        "arm": "5f91165f12f9122febfd5dcf",
+        "school": "5f8c7ee1b9776e05f105a6db"
+      },
+      "type": "object",
+      "properties": {
+        "classN": {
+          "type": "string"
+        },
+        "arm": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        }
+      },
+      "required": ["classN", "arm", "school"]
+    },
+    "AddNoticeRequest": {
+      "title": "AddNoticeRequest",
+      "example": {
+        "message": "Just a test hshsxhshxhs",
+        "school": "5f8c7ee1b9776e05f105a6db"
+      },
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        }
+      },
+      "required": ["message", "school"]
+    },
+    "DeleteNoticeRequest": {
+      "title": "DeleteNoticeRequest",
+      "example": {
+        "message": "Just a test",
+        "school": "5f8c7ee1b9776e05f105a6db"
+      },
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        }
+      },
+      "required": ["message", "school"]
+    },
+    "PromoteByresultRequest": {
+      "title": "PromoteByresultRequest",
+      "example": {
+        "arm": "5f91165f12f9122febfd5dcf",
+        "classN": "5f902f459dafe11137c5ffb2",
+        "school": "5f8c7ee1b9776e05f105a6db",
+        "studentData": [
+          {
+            "admissionNumber": "biia/student/2020/3",
+            "_id": "5f92961dd425bc5b973069e6"
+          },
+          {
+            "admissionNumber": "biia/student/2020/4",
+            "_id": "5f929e6caede74600480f0ba"
+          },
+          {
+            "admissionNumber": "biia/student/2020/4",
+            "_id": "5f929e6caede74600480f0ba"
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "arm": {
+          "type": "string"
+        },
+        "classN": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        },
+        "studentData": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StudentDatum"
+          }
+        }
+      },
+      "required": ["arm", "classN", "school", "studentData"]
+    },
+    "StudentDatum": {
+      "title": "StudentDatum",
+      "example": {
+        "admissionNumber": "biia/student/2020/3",
+        "_id": "5f92961dd425bc5b973069e6"
+      },
+      "type": "object",
+      "properties": {
+        "admissionNumber": {
+          "type": "string"
+        },
+        "_id": {
+          "type": "string"
+        }
+      },
+      "required": ["admissionNumber", "_id"]
+    },
+    "GraduteresultRequest": {
+      "title": "GraduteresultRequest",
+      "example": {
+        "arm": "5f9bf4b98d391a5dd309bbf7",
+        "classN": "5f902e9b9dafe11137c5ffb0",
+        "school": "5f8c7ee1b9776e05f105a6db",
+        "studentData": [
+          {
+            "admissionNumber": "biia/student/2020/3",
+            "_id": "5f92961dd425bc5b973069e6"
+          },
+          {
+            "admissionNumber": "biia/student/2020/4",
+            "_id": "5f929e6caede74600480f0ba"
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "arm": {
+          "type": "string"
+        },
+        "classN": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        },
+        "studentData": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StudentDatum"
+          }
+        }
+      },
+      "required": ["arm", "classN", "school", "studentData"]
+    },
+    "previousresultrequest": {
+      "title": "previousresultrequest",
+      "example": {
+        "term": "Frist",
+        "section": "2021/2022",
+        "admissionNumber": "biia/student/2020/2"
+      },
+      "type": "object",
+      "properties": {
+        "term": {
+          "type": "string"
+        },
+        "section": {
+          "type": "string"
+        },
+        "admissionNumber": {
+          "type": "string"
+        }
+      },
+      "required": ["term", "section", "admissionNumber"]
+    },
+    "loginstudentrequest1": {
+      "title": "loginstudentrequest1",
+      "example": {
+        "regNumber": "biia/staff/8",
+        "password": "password1"
+      },
+      "type": "object",
+      "properties": {
+        "regNumber": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "required": ["regNumber", "password"]
+    },
+    "resetpasswordrequest1": {
+      "title": "resetpasswordrequest1",
+      "example": {
+        "regNumber": "biia/staff/0",
+        "oldPassword": "password",
+        "newPassword": "password1"
+      },
+      "type": "object",
+      "properties": {
+        "regNumber": {
+          "type": "string"
+        },
+        "oldPassword": {
+          "type": "string"
+        },
+        "newPassword": {
+          "type": "string"
+        }
+      },
+      "required": ["regNumber", "oldPassword", "newPassword"]
+    },
+    "editdepartmentrequest": {
+      "title": "editdepartmentrequest",
+      "example": {
+        "department": "5f9be928421b1a595d6747e5",
+        "name": "javinokjjjjjjj",
+        "school": "5f8c7ee1b9776e05f105a6db"
+      },
+      "type": "object",
+      "properties": {
+        "department": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        }
+      },
+      "required": ["department", "name", "school"]
+    },
+    "SendSmsRequest": {
+      "title": "SendSmsRequest",
+      "example": {
+        "phoneNumbers": ["08144899798"],
+        "message": "Hi it the us gggggggg  and we would like to do that we do best make the xhshshsa hsycs . hcscwb . shsshvcsn . zcshcbsns sncbsc sscbsc s cshcbscs",
+        "school": "5f9183cad035174e94992476"
+      },
+      "type": "object",
+      "properties": {
+        "phoneNumbers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "message": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        }
+      },
+      "required": ["phoneNumbers", "message", "school"]
+    },
+    "GetSmsRequest": {
+      "title": "GetSmsRequest",
+      "example": {
+        "school": "5f9183cad035174e94992476"
+      },
+      "type": "object",
+      "properties": {
+        "school": {
+          "type": "string"
+        }
+      },
+      "required": ["school"]
+    },
+    "generateScratchCardRequest": {
+      "title": "generateScratchCardRequest",
+      "example": {
+        "amount": 400,
+        "numberOfCard": 1,
+        "school": "5f9183cad035174e94992476"
+      },
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "numberOfCard": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "school": {
+          "type": "string"
+        }
+      },
+      "required": ["amount", "numberOfCard", "school"]
+    },
+    "generateScratchCard": {
+      "title": "generateScratchCard",
+      "example": {
+        "title": "success",
+        "message": "Generate scratch cards successfully"
+      },
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": ["title", "message"]
+    },
+    "getScratchCard": {
+      "title": "getScratchCard",
+      "example": {
+        "_id": "615326c963cda80d59c473e6",
+        "used": false,
+        "generatedDataAndTime": "2021-09-28T13:56:30.075Z",
+        "pin": "322755312803",
+        "serialNumber": "1e8f2fd2-c596-4c9c-8b81-abfd32153380",
+        "amount": 400,
+        "school": "5f9183cad035174e94992476",
+        "__v": 0
+      },
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "used": {
+          "type": "boolean"
+        },
+        "generatedDataAndTime": {
+          "type": "string"
+        },
+        "pin": {
+          "type": "string"
+        },
+        "serialNumber": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "school": {
+          "type": "string"
+        },
+        "__v": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "_id",
+        "used",
+        "generatedDataAndTime",
+        "pin",
+        "serialNumber",
+        "amount",
+        "school",
+        "__v"
+      ]
+    },
+    "useScratchCardRequest": {
+      "title": "useScratchCardRequest",
+      "example": {
+        "pin": "724693720095",
+        "school": "5f9183cad035174e94992476"
+      },
+      "type": "object",
+      "properties": {
+        "pin": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        }
+      },
+      "required": ["pin", "school"]
+    },
+    "useScratchCard": {
+      "title": "useScratchCard",
+      "example": {
+        "title": "Success",
+        "message": "Successful used pin "
+      },
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": ["title", "message"]
+    },
+    "getusedScratchCard": {
+      "title": "getusedScratchCard",
+      "example": {
+        "_id": "615326c963cda80d59c473e6",
+        "used": true,
+        "generatedDataAndTime": "2021-09-28T13:56:30.075Z",
+        "pin": "322755312803",
+        "serialNumber": "1e8f2fd2-c596-4c9c-8b81-abfd32153380",
+        "amount": 400,
+        "school": "5f9183cad035174e94992476",
+        "__v": 0
+      },
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "used": {
+          "type": "boolean"
+        },
+        "generatedDataAndTime": {
+          "type": "string"
+        },
+        "pin": {
+          "type": "string"
+        },
+        "serialNumber": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "school": {
+          "type": "string"
+        },
+        "__v": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "_id",
+        "used",
+        "generatedDataAndTime",
+        "pin",
+        "serialNumber",
+        "amount",
+        "school",
+        "__v"
+      ]
+    },
+    "ScratchCardStats": {
+      "title": "getScratchCardstats",
+      "example": {
+        "totalScratchCard": 2,
+        "totalUsedScratchCard": 1,
+        "totalNotUsedScratchCard": 1
+      },
+      "type": "object",
+      "properties": {
+        "totalScratchCard": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "totalUsedScratchCard": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "totalNotUsedScratchCard": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "totalScratchCard",
+        "totalUsedScratchCard",
+        "totalNotUsedScratchCard"
+      ]
+    },
+    "deleteusedcards": {
+      "title": "deleteusedcards",
+      "example": {
+        "title": "Success",
+        "message": "Successful Deleted Pin "
+      },
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": ["title", "message"]
+    }
+  },
+  "tags": [
+    {
+      "name": "School"
+    },
+    {
+      "name": "Section"
+    },
+    {
+      "name": "Behaviours"
+    },
+    {
+      "name": "Skills"
+    },
+    {
+      "name": "Class"
+    },
+    {
+      "name": "Arm"
+    },
+    {
+      "name": "Subject"
+    },
+    {
+      "name": "Test"
+    },
+    {
+      "name": "Desination"
+    },
+    {
+      "name": "Student"
+    },
+    {
+      "name": "Result"
+    },
+    {
+      "name": "Staff"
+    },
+    {
+      "name": "Department"
+    },
+    {
+      "name": "Sms"
+    },
+    {
+      "name": "ScratchCard"
+    },
+    {
+      "name": "Misc",
+      "description": ""
+    }
+  ]
+}

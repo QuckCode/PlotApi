@@ -1,0 +1,9 @@
+export const Class = "/class";
+export const ClassFetch = "/class/:school";
+export const AddClassSubject = "/class/subject/add";
+export const RemoveClassSubject = "/class/subject/remove";
+export const GetClassSubject = "/class/subject/:classId";
+export const AddClassTest = "/class/test/add";
+export const RemoveClassTest = "/class/test/remove";
+export const GetClassTest = "/class/test/:classId";
+export const GetAllStudentInAClass = "/class/students/:classId";
