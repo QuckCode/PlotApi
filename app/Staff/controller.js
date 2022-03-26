@@ -23,8 +23,6 @@ const createStaff = async (req, res, next) => {
     address,
     phone,
     dob,
-    state,
-    lga,
   } = req.body;
 
   if (!firstName) throw new MissingParameterError("First Name");
@@ -32,8 +30,6 @@ const createStaff = async (req, res, next) => {
   if (!gender) return next(new MissingParameterError("Gender"));
   if (!school) return next(new MissingParameterError("School"));
   if (!dob) return next(new MissingParameterError("date of birth"));
-  if (!lga) return next(new MissingParameterError("lga"));
-  if (!state) return next(new MissingParameterError("date of birth"));
 
   if (await !isValidSchoolById(school)) {
     return next(new APIError("User Error", "School Does not exist"));
