@@ -44,13 +44,14 @@ const fetchClass = async (req, res, next) => {
       .lean()
       .exec();
     classes = classes.map(
-      ({ section, name, school, _id, subjects, tests }) => ({
+      ({ section, name, school, _id, subjects, tests, hasSubjectGroup }) => ({
         section: section.section,
         sectionId: section._id,
         name,
         school,
         _id,
         subjects: subjects,
+        hasSubjectGroup,
       })
     );
     return res.send(classes);
