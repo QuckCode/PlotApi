@@ -164,8 +164,8 @@ const fetchSubjectGroupBySchool = async (req, res, next) => {
     let subjectGroup = await SubjectGroup.find({
       school: ObjectId(schoolId),
     })
-      .lean()
-      .select("name subjects");
+      .populate("subjects")
+      .lean();
 
     if (subjectGroup === null)
       throw new APIError("Subject Error", "Subject was Not Found");
