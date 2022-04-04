@@ -1,11 +1,11 @@
 import axios from "axios";
-import { School, GetSchoolSetting, EditSchoolSetting } from "../routes";
+import { EditSchoolSetting, GetSchoolSetting, School } from "../routes";
 import { sas } from "../../utils";
 import mongoose from "mongoose";
 const { ObjectId } = mongoose.Types;
 
 let id = String(ObjectId());
-describe("School Routes  ", () => {
+describe("School Routes", () => {
   let school = {
     name: `Test${Math.random()}`,
     prefix: `XAx${Math.random()}`,
@@ -29,7 +29,7 @@ describe("School Routes  ", () => {
     expect(response.data.length > 0).toEqual(true);
   });
 
-  it("Can Get School Setting ", async () => {
+  it("Can Get School Setting", async () => {
     let response = await axios.get(
       sas(GetSchoolSetting.replace(":school", school.id))
     );

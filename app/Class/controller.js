@@ -217,6 +217,26 @@ const getAllStudentInAClass = async (req, res, next) => {
   }
 };
 
+const setHasSubjectGroup = async (req, res, next) => {
+  try {
+    const { hasSubjectGroup, classId } = req.body;
+    if (!classId) return next(new MissingParameterError("Class Id"));
+    if (hasSubjectGroup === undefined)
+      return next(new MissingParameterError("Has Group Subject"));
+
+    if (!(await Class.validateById(classId)))
+      return next(new InValidParameterError("Class"));
+
+    await Class.findOneAndUpdate({ _id: classId }, { hasSubjectGroup });
+
+    return res.send({
+      title: "success",
+      message: "Set Has Subject Group Successfully",
+    });
+  } catch (error) {
+    return next(new APIError(error.title, error.message));
+  }
+};
 export default {
   createClass,
   fetchClass,
@@ -228,4 +248,5 @@ export default {
   fetchClassTest,
   getAllStudentInAClass,
   deleteClass,
+  setHasSubjectGroup,
 };

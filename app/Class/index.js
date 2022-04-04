@@ -10,6 +10,7 @@ import {
   GetClassTest,
   RemoveClassSubject,
   RemoveClassTest,
+  SetHasSubjectGroup,
 } from "./routes";
 
 app.post(Class, ClassController.createClass);
@@ -31,3 +32,5 @@ app.get(GetClassTest, ClassController.fetchClassTest);
 app.get(GetAllStudentInAClass, ClassController.getAllStudentInAClass);
 
 app.delete(Class, ClassController.deleteClass);
+
+app.post(SetHasSubjectGroup, ClassController.setHasSubjectGroup);

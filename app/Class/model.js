@@ -38,6 +38,10 @@ const Class = new mongoose.Schema(
       ],
       default: [],
     },
+    hasSubjectGroup: {
+      type: Boolean,
+      default: false,
+    },
   },
   configModel.options
 );

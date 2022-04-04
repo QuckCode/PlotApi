@@ -7,3 +7,4 @@ export const AddClassTest = "/class/test/add";
 export const RemoveClassTest = "/class/test/remove";
 export const GetClassTest = "/class/test/:classId";
 export const GetAllStudentInAClass = "/class/students/:classId";
+export const SetHasSubjectGroup = "/class/hasSubjectGroup";
