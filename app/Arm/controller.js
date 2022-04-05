@@ -114,6 +114,7 @@ const getAllStudentInArm = (req, res, next) => {
                 admissionNumber: "$$student.admissionNumber",
                 class: "$class",
                 arm: "$arm",
+                subjectGroup: "$$student.subjectGroup",
               },
             },
           },
