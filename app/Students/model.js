@@ -143,6 +143,11 @@ const Student = new mongoose.Schema(
       type: String,
       default: true,
     },
+    subjectGroup: {
+      ref: "SubjectGroup",
+      type: ObjectId,
+      default: null,
+    },
   },
   configModel.options
 );

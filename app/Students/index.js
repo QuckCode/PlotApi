@@ -21,6 +21,7 @@ import {
   SaveStudentScore,
   SaveStudentScoreBySubject,
   SaveStudentSkillScore,
+  SetStudentSubjectGroup,
   Student,
   StudentFetch,
   ValidateResultByArm,
@@ -113,3 +114,5 @@ app.post(
   GetStudentClassAndArmByAdmissionNumber,
   StudentController.GetStudentCurrentClassAndArm
 );
+
+app.post(SetStudentSubjectGroup, StudentController.setStudentSubjectGroup);

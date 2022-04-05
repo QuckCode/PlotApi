@@ -1,4 +1,4 @@
-import { APIError } from "@errors/baseErrors";
+import { APIError, MissingParameterError } from "@errors/baseErrors";
 import Student from "./model";
 import { missingParameterError } from "../utils/error";
 import jwt from "jsonwebtoken";
@@ -216,7 +216,6 @@ export const fetchStudent = (req, res, next) => {
       return res.send(newStudentList);
     })
     .catch((err) => {
-      console.log(err);
       return next(new APIError("User Error", "please an error occurred"));
     });
 };
@@ -2523,6 +2522,29 @@ export const GetStudentCurrentClassAndArm = (req, res, next) => {
     });
 };
 
+export const setStudentSubjectGroup = async (req, res, next) => {
+  try {
+    const { studentData } = req.body;
+
+    for (const { studentId, subjectGroupId } of studentData) {
+      if (!studentId) throw new MissingParameterError("Student Id");
+      await Student.findOneAndUpdate(
+        { _id: studentId },
+        {
+          subjectGroup: subjectGroupId,
+        }
+      );
+    }
+
+    return res.send({
+      title: "success",
+      message: "Saved Student Data Successfully",
+    });
+  } catch (error) {
+    return next(new APIError(error.title, error.message));
+  }
+};
+
 export default {
   createStudent,
   fetchStudent,
@@ -2551,4 +2573,5 @@ export default {
   GetBehaviourResultComputation,
   GetSkillResultComputation,
   GetStudentCurrentClassAndArm,
+  setStudentSubjectGroup,
 };
