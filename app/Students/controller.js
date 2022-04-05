@@ -207,14 +207,9 @@ export const fetchStudent = (req, res, next) => {
           name: `${x.firstName} ${
             x.middleName == undefined ? "" : x.middleName
           } ${x.srnName}`,
-          gender: x.gender,
           class: x.class.name,
-          dob: x.dob,
           arm: x.arm.character,
-          passport: x.passport,
-          address: x.address,
-          state: x.state,
-          phone: x.phone,
+          ...x,
         };
       });
 

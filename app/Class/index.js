@@ -8,6 +8,7 @@ import {
   GetAllStudentInAClass,
   GetClassSubject,
   GetClassTest,
+  HasSubjectGroup,
   RemoveClassSubject,
   RemoveClassTest,
   SetHasSubjectGroup,
@@ -34,3 +35,5 @@ app.get(GetAllStudentInAClass, ClassController.getAllStudentInAClass);
 app.delete(Class, ClassController.deleteClass);
 
 app.post(SetHasSubjectGroup, ClassController.setHasSubjectGroup);
+
+app.get(HasSubjectGroup, ClassController.hasSubjectGroup);

@@ -238,6 +238,25 @@ const setHasSubjectGroup = async (req, res, next) => {
     return next(new APIError(error.title, error.message));
   }
 };
+
+const hasSubjectGroup = async (req, res, next) => {
+  try {
+    const { classId } = req.params;
+    if (!classId) return next(new MissingParameterError("Class Id"));
+    if (!(await Class.validateById(classId)))
+      return next(new InValidParameterError("Class"));
+
+    let currentClass = await Class.findById(classId);
+    if (!currentClass.hasSubjectGroup)
+      throw new APIError("Class Error", "Class Does not Have subject Group");
+    return res.send({
+      title: "success",
+      message: currentClass.name + " Has Subject Group",
+    });
+  } catch (error) {
+    return next(new APIError(error.title, error.message));
+  }
+};
 export default {
   createClass,
   fetchClass,
@@ -250,4 +269,5 @@ export default {
   getAllStudentInAClass,
   deleteClass,
   setHasSubjectGroup,
+  hasSubjectGroup,
 };
