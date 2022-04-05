@@ -202,14 +202,13 @@ export const fetchStudent = (req, res, next) => {
       let students = data.map((x) => {
         if (x == null || x.class == null) return;
         return {
-          admissionNumber: x.admissionNumber,
+          ...x,
           id: x._id,
           name: `${x.firstName} ${
             x.middleName == undefined ? "" : x.middleName
           } ${x.srnName}`,
           class: x.class.name,
           arm: x.arm.character,
-          ...x,
         };
       });
 
