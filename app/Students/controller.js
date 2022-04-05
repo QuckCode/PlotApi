@@ -2541,6 +2541,7 @@ export const setStudentSubjectGroup = async (req, res, next) => {
       message: "Saved Student Data Successfully",
     });
   } catch (error) {
+    console.log(error);
     return next(new APIError(error.title, error.message));
   }
 };
