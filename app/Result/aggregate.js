@@ -315,6 +315,7 @@ const viewResultAggregate = (term, section, arm, classN) => {
         gender: 1,
         class: 1,
         arm: 1,
+        present: 1,
         resultScores: {
           $filter: {
             input: "$resultScores",
@@ -385,6 +386,7 @@ const viewResultAggregate = (term, section, arm, classN) => {
     },
     {
       $project: {
+        present: 1,
         name: 1,
         admissionNumber: 1,
         passport: 1,
@@ -406,6 +408,7 @@ const viewResultAggregate = (term, section, arm, classN) => {
         arm: "$arm.character",
         resultScores: 1,
         terms: 1,
+        present: 1,
       },
     },
     {
@@ -425,7 +428,7 @@ const viewResultAggregate = (term, section, arm, classN) => {
         arm: 1,
         subjects: 1,
         admissionNumber: 1,
-        passport: 1,
+        present: 1,
         resultScores: {
           $map: {
             input: "$resultScores",
@@ -479,7 +482,7 @@ const viewResultAggregate = (term, section, arm, classN) => {
         arm: 1,
         subjects: 1,
         admissionNumber: 1,
-        passport: 1,
+        present: 1,
         terms: 1,
         resultScores: {
           $map: {
@@ -581,7 +584,7 @@ const viewResultAggregate = (term, section, arm, classN) => {
         class: 1,
         arm: 1,
         admissionNumber: 1,
-        passport: 1,
+        present: 1,
         terms: 1,
         resultScores: {
           $map: {
@@ -643,7 +646,7 @@ const viewResultAggregate = (term, section, arm, classN) => {
         class: 1,
         arm: 1,
         admissionNumber: 1,
-        passport: 1,
+        present: 1,
         resultScores: {
           $map: {
             input: "$resultScores",
@@ -724,7 +727,7 @@ const viewResultAggregate = (term, section, arm, classN) => {
         class: 1,
         arm: 1,
         admissionNumber: 1,
-        passport: 1,
+        present: 1,
         terms: 1,
         resultScores: 1,
         totalScore: {
@@ -751,7 +754,7 @@ const viewResultAggregate = (term, section, arm, classN) => {
         class: 1,
         arm: 1,
         admissionNumber: 1,
-        passport: 1,
+        present: 1,
         terms: 1,
         resultScores: 1,
         totalScore: 1,
@@ -811,7 +814,7 @@ const viewResultAggregate = (term, section, arm, classN) => {
         class: 1,
         arm: 1,
         admissionNumber: 1,
-        passport: 1,
+        present: 1,
         resultScores: 1,
         terms: 1,
         position: 1,
@@ -847,6 +850,7 @@ const viewResultAggregate = (term, section, arm, classN) => {
         name: 1,
         class: 1,
         position: 1,
+        present: 1,
         arm: 1,
         resultScores: 1,
         totalScore: 1,
@@ -890,6 +894,7 @@ const viewResultAggregate = (term, section, arm, classN) => {
         position: 1,
         name: 1,
         class: 1,
+        present: 1,
         arm: 1,
         resultScores: 1,
         totalScore: 1,
@@ -909,6 +914,7 @@ const viewResultAggregate = (term, section, arm, classN) => {
         gender: 1,
         admissionNumber: 1,
         position: 1,
+        present: 1,
         name: 1,
         class: 1,
         arm: 1,
@@ -932,6 +938,7 @@ const viewResultAggregate = (term, section, arm, classN) => {
         position: 1,
         name: 1,
         class: 1,
+        present: 1,
         arm: 1,
         resultScores: 1,
         totalScore: 1,
@@ -983,6 +990,7 @@ const viewResultAggregate = (term, section, arm, classN) => {
         admissionNumber: 1,
         position: 1,
         name: 1,
+        present: 1,
         class: 1,
         arm: 1,
         terms: 1,
@@ -1035,6 +1043,7 @@ const viewResultAggregate = (term, section, arm, classN) => {
         name: 1,
         position: 1,
         class: 1,
+        present: 1,
         arm: 1,
         terms: 1,
         resultScores: {
@@ -1067,6 +1076,7 @@ const viewResultAggregate = (term, section, arm, classN) => {
         position: 1,
         admissionNumber: 1,
         name: 1,
+        present: 1,
         class: 1,
         arm: 1,
         terms: 1,
