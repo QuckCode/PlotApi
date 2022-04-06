@@ -28,3 +28,4 @@ export const GetComputeBehaviourResultByArm =
 export const GetComputeSkillResultByArm = "/student/skill/compute/:classN/:arm";
 export const GetStudentClassAndArmByAdmissionNumber = "/student/ClassAndArm";
 export const SetStudentSubjectGroup = "/student/subjectGroup";
+export const SetStudentAttendance = "/student/attendance";

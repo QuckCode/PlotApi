@@ -2546,6 +2546,30 @@ export const setStudentSubjectGroup = async (req, res, next) => {
   }
 };
 
+export const setStudentAttendance = async (req, res, next) => {
+  try {
+    const { studentData } = req.body;
+
+    for (const { studentId, present } of studentData) {
+      if (!studentId) throw new MissingParameterError("Student Id");
+      await Student.findOneAndUpdate(
+        { _id: studentId },
+        {
+          present,
+        }
+      );
+    }
+
+    return res.send({
+      title: "success",
+      message: "Saved Student Data Successfully",
+    });
+  } catch (error) {
+    console.log(error);
+    return next(new APIError(error.title, error.message));
+  }
+};
+
 export default {
   createStudent,
   fetchStudent,
@@ -2575,4 +2599,5 @@ export default {
   GetSkillResultComputation,
   GetStudentCurrentClassAndArm,
   setStudentSubjectGroup,
+  setStudentAttendance,
 };

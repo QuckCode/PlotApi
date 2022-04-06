@@ -115,6 +115,7 @@ const getAllStudentInArm = (req, res, next) => {
                 class: "$class",
                 arm: "$arm",
                 subjectGroup: "$$student.subjectGroup",
+                present: "$$student.present",
               },
             },
           },

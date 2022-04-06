@@ -21,6 +21,7 @@ import {
   SaveStudentScore,
   SaveStudentScoreBySubject,
   SaveStudentSkillScore,
+  SetStudentAttendance,
   SetStudentSubjectGroup,
   Student,
   StudentFetch,
@@ -116,3 +117,4 @@ app.post(
 );
 
 app.post(SetStudentSubjectGroup, StudentController.setStudentSubjectGroup);
+app.post(SetStudentAttendance, StudentController.setStudentAttendance);
