@@ -43,33 +43,36 @@ export const PerformResultComputation = (req, res, next) => {
         .then((data) => {
           if (data.length === 0) {
             try {
-              Student.aggregate(computeResult()).exec((err, result) => {
-                if (err) {
-                  return next(new APIError("User Error", err.message));
-                }
-                if (result.length === 0)
-                  return next(
-                    new APIError("User Error", "No result was found")
-                  );
-                let { term, section } = school;
-                let results = result.map((x) => {
-                  return {
-                    term,
-                    section,
-                    school: school._id,
-                    ...x,
-                    _id: new ObjectId(),
-                  };
-                });
+              Student.aggregate(computeResult(classN, arm)).exec(
+                (err, result) => {
+                  console.log(err);
+                  if (err) {
+                    return next(new APIError("User Error", err.message));
+                  }
+                  if (result.length === 0)
+                    return next(
+                      new APIError("User Error", "No result was found")
+                    );
+                  let { term, section } = school;
+                  let results = result.map((x) => {
+                    return {
+                      term,
+                      section,
+                      school: school._id,
+                      ...x,
+                      _id: new ObjectId(),
+                    };
+                  });
 
-                ResultScore.insertMany(results)
-                  .then((data) => {
-                    return res.send({ message: "Computation complete" });
-                  })
-                  .catch((error) =>
-                    next(new APIError("User Error", error.message))
-                  );
-              });
+                  ResultScore.insertMany(results)
+                    .then((data) => {
+                      return res.send({ message: "Computation complete" });
+                    })
+                    .catch((error) =>
+                      next(new APIError("User Error", error.message))
+                    );
+                }
+              );
             } catch (error) {
               return next(new APIError("User Error", error.message));
             }
