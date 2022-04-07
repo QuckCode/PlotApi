@@ -1102,6 +1102,34 @@ const viewResultAggregate = (term, section, arm, classN) => {
         resultSkills: 1,
       },
     },
+    {
+      $project: {
+        _id: 1,
+        passport: 1,
+        gender: 1,
+        position: 1,
+        admissionNumber: 1,
+        name: 1,
+        class: 1,
+        arm: 1,
+        terms: 1,
+        totalScore: 1,
+        avg: 1,
+        cumulativeTotal: 1,
+        cumulativeAvg: 1,
+        cumulativePostion: 1,
+        resultBehaviours: 1,
+        resultScores: {
+          $filter: {
+            input: "$resultScores",
+            as: "beh",
+            cond: {
+              $ne: ["$$beh.studentResults", {}],
+            },
+          },
+        },
+      },
+    },
   ];
 };
 
