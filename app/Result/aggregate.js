@@ -1119,6 +1119,7 @@ const viewResultAggregate = (term, section, arm, classN) => {
         cumulativeAvg: 1,
         cumulativePostion: 1,
         resultBehaviours: 1,
+        resultSkills: 1,
         resultScores: {
           $filter: {
             input: "$resultScores",
