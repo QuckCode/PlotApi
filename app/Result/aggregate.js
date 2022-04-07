@@ -1115,6 +1115,7 @@ const viewResultAggregate = (term, section, arm, classN) => {
         terms: 1,
         totalScore: 1,
         avg: 1,
+        present: 1,
         cumulativeTotal: 1,
         cumulativeAvg: 1,
         cumulativePostion: 1,
