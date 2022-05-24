@@ -55,6 +55,7 @@ require("@app/Skills");
 require("@app/Sms");
 require("@app/Result");
 require("@app/ScratchCard");
+require("@app/QRcode");
 
 // redis.on("connect", () => {
 //   console.log("connected to Redis");
