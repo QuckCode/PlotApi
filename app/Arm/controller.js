@@ -1,6 +1,6 @@
 import Arm from "./model";
 import { APIError, MissingParameterError } from "@errors/baseErrors";
-import mongoose from "mongoose";
+import { ObjectId } from "mongodb";
 import { missingParameterError } from "@app/utils/error";
 const createArm = (req, res, next) => {
   const { arm, classes, school } = req.body;
@@ -68,7 +68,7 @@ const getAllStudentInArm = (req, res, next) => {
 
   try {
     Arm.aggregate([
-      { $match: { _id: new mongoose.Types.ObjectId(arm) } },
+      { $match: { _id: new ObjectId(arm) } },
       {
         $lookup: {
           from: "classes",

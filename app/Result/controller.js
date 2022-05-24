@@ -17,7 +17,7 @@ const {
 } = require("./aggregate");
 const { ObjectId } = mongoose.Types;
 
-export const PerformResultComputation = (req, res, next) => {
+export const PerformResultComputation = async (req, res, next) => {
   const { classN, arm, school } = req.body;
   if (!classN)
     return next(
@@ -91,7 +91,7 @@ export const PerformResultComputation = (req, res, next) => {
     });
 };
 
-export const PerformResultReComputation = (req, res, next) => {
+export const PerformResultReComputation = async (req, res, next) => {
   const { classN, arm, school } = req.body;
   if (!classN)
     return next(
@@ -126,7 +126,7 @@ export const PerformResultReComputation = (req, res, next) => {
     });
 };
 
-export const PerformBehaviourResultComputation = (req, res, next) => {
+export const PerformBehaviourResultComputation = async (req, res, next) => {
   const { classN, arm, school } = req.body;
   if (!classN)
     return next(
@@ -352,7 +352,7 @@ export const PerformBehaviourResultComputation = (req, res, next) => {
     });
 };
 
-export const PerformBehaviourResultReComputation = (req, res, next) => {
+export const PerformBehaviourResultReComputation = async (req, res, next) => {
   const { classN, arm, school } = req.body;
   if (!classN)
     return next(
@@ -387,7 +387,7 @@ export const PerformBehaviourResultReComputation = (req, res, next) => {
     });
 };
 
-export const PerformSkillResultComputation = (req, res, next) => {
+export const PerformSkillResultComputation = async (req, res, next) => {
   const { classN, arm, school } = req.body;
   if (!classN)
     return next(
@@ -604,7 +604,7 @@ export const PerformSkillResultComputation = (req, res, next) => {
     });
 };
 
-export const PerformSkillResultReComputation = (req, res, next) => {
+export const PerformSkillResultReComputation = async (req, res, next) => {
   const { classN, arm, school } = req.body;
   if (!classN)
     return next(
@@ -639,7 +639,7 @@ export const PerformSkillResultReComputation = (req, res, next) => {
     });
 };
 
-export const PrintResultForArm = (req, res, next) => {
+export const PrintResultForArm = async (req, res, next) => {
   const { classN, arm, school } = req.body;
   if (!classN)
     return next(
@@ -725,7 +725,7 @@ export const PrintResultForArm = (req, res, next) => {
     });
 };
 
-export const AddNotice = (req, res, next) => {
+export const AddNotice = async (req, res, next) => {
   const { message, school } = req.body;
 
   if (!school)
@@ -749,7 +749,7 @@ export const AddNotice = (req, res, next) => {
     });
 };
 
-export const RemoveNotice = (req, res, next) => {
+export const RemoveNotice = async (req, res, next) => {
   const { message, school } = req.body;
 
   if (!school)
@@ -790,7 +790,7 @@ export const GetAllNotice = async (req, res, next) => {
     });
 };
 
-export const PromoteByResult = (req, res, next) => {
+export const PromoteByResult = async (req, res, next) => {
   const { classN, arm, school, studentData } = req.body;
 
   if (!classN)
@@ -830,7 +830,7 @@ export const PromoteByResult = (req, res, next) => {
   return res.send({ message: "Successfully promoted student " });
 };
 
-export const GradateStudent = (req, res, next) => {
+export const GradateStudent = async (req, res, next) => {
   const { classN, arm, school, studentData } = req.body;
 
   if (!classN)
@@ -871,7 +871,7 @@ export const GradateStudent = (req, res, next) => {
   return res.send({ message: "Successfully graduated student " });
 };
 
-export const PreviousResult = (req, res, next) => {
+export const PreviousResult = async (req, res, next) => {
   const { term, section, admissionNumber } = req.body;
   console.log(req.body);
   if (!term)

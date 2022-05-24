@@ -1291,7 +1291,9 @@ export const getStudentByAdmissionNumber = (req, res, next) => {
   console.log(newStudent);
   Student.findOne({ admissionNumber: newStudent })
     .select("-behaviourScores -skillScores -testScores -password")
+    .lean()
     .then((data) => {
+      if (!data) throw new Error("Student not found");
       return res.send(data);
     })
     .catch((err) => {
