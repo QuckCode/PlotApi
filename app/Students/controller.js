@@ -10,6 +10,7 @@ import Subject from "../Subject/model";
 import Class from "../Class/model";
 import moment from "moment";
 import School from "../School/model";
+import { nanoid } from "nanoid";
 const { ObjectId } = mongoose.Types;
 
 export const createStudent = async (req, res, next) => {
@@ -81,7 +82,7 @@ export const createStudent = async (req, res, next) => {
         arm,
         school,
         admissionDate,
-        admissionNumber: `${data.schoolPrefix}/student/${year}/${data.length}`,
+        admissionNumber: `${data.schoolPrefix}-student-${year}-${nanoid(4)}`,
         state,
         lga,
       });
