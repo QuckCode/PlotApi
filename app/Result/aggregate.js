@@ -283,7 +283,12 @@ const computeResult = (classN, arm) => {
 
 const viewResultAggregate = (term, section, arm, classN) => {
   return [
-    { $match: { arm: new ObjectId(arm), class: new ObjectId(classN) } },
+    {
+      $match: {
+        arm: new ObjectId(arm),
+        class: new ObjectId(classN),
+      },
+    },
     {
       $lookup: {
         from: "resultscores",
@@ -309,7 +314,9 @@ const viewResultAggregate = (term, section, arm, classN) => {
     },
     {
       $project: {
-        name: { $concat: ["$firstName", " ", "$middleName", " ", "$srnName"] },
+        name: {
+          $concat: ["$firstName", " ", "$middleName", " ", "$srnName"],
+        },
         admissionNumber: 1,
         passport: 1,
         gender: 1,
@@ -322,8 +329,12 @@ const viewResultAggregate = (term, section, arm, classN) => {
             as: "resultScore",
             cond: {
               $and: [
-                { $eq: ["$$resultScore.term", term] },
-                { $eq: ["$$resultScore.section", section] },
+                {
+                  $eq: ["$$resultScore.term", term],
+                },
+                {
+                  $eq: ["$$resultScore.section", section],
+                },
               ],
             },
           },
@@ -335,8 +346,12 @@ const viewResultAggregate = (term, section, arm, classN) => {
               as: "resultScore",
               cond: {
                 $and: [
-                  { $eq: ["$$resultScore.term", "First"] },
-                  { $eq: ["$$resultScore.section", section] },
+                  {
+                    $eq: ["$$resultScore.term", "First"],
+                  },
+                  {
+                    $eq: ["$$resultScore.section", section],
+                  },
                 ],
               },
             },
@@ -347,8 +362,12 @@ const viewResultAggregate = (term, section, arm, classN) => {
               as: "resultScore",
               cond: {
                 $and: [
-                  { $eq: ["$$resultScore.term", "Second"] },
-                  { $eq: ["$$resultScore.section", section] },
+                  {
+                    $eq: ["$$resultScore.term", "Second"],
+                  },
+                  {
+                    $eq: ["$$resultScore.section", section],
+                  },
                 ],
               },
             },
@@ -359,8 +378,12 @@ const viewResultAggregate = (term, section, arm, classN) => {
               as: "resultScore",
               cond: {
                 $and: [
-                  { $eq: ["$$resultScore.term", "Third"] },
-                  { $eq: ["$$resultScore.section", section] },
+                  {
+                    $eq: ["$$resultScore.term", "Third"],
+                  },
+                  {
+                    $eq: ["$$resultScore.section", section],
+                  },
                 ],
               },
             },
@@ -391,8 +414,12 @@ const viewResultAggregate = (term, section, arm, classN) => {
         admissionNumber: 1,
         passport: 1,
         gender: 1,
-        class: { $arrayElemAt: ["$class", 0] },
-        arm: { $arrayElemAt: ["$arm", 0] },
+        class: {
+          $arrayElemAt: ["$class", 0],
+        },
+        arm: {
+          $arrayElemAt: ["$arm", 0],
+        },
         resultScores: 1,
         terms: 1,
       },
@@ -483,29 +510,6 @@ const viewResultAggregate = (term, section, arm, classN) => {
         subjects: 1,
         admissionNumber: 1,
         present: 1,
-        terms: 1,
-        resultScores: {
-          $map: {
-            input: "$resultScores",
-            as: "resultScore",
-            in: {
-              subject: {
-                $filter: {
-                  input: "$subjects",
-                  as: "subject",
-                  cond: { $eq: ["$$resultScore.subject", "$$subject._id"] },
-                },
-              },
-              studentResults: {
-                $filter: {
-                  input: "$$resultScore.studentResults",
-                  as: "studentResult",
-                  cond: { $eq: ["$$studentResult.studentId", "$_id"] },
-                },
-              },
-            },
-          },
-        },
         terms: {
           first: {
             $map: {
@@ -516,14 +520,18 @@ const viewResultAggregate = (term, section, arm, classN) => {
                   $filter: {
                     input: "$subjects",
                     as: "subject",
-                    cond: { $eq: ["$$resultScore.subject", "$$subject._id"] },
+                    cond: {
+                      $eq: ["$$resultScore.subject", "$$subject._id"],
+                    },
                   },
                 },
                 studentResults: {
                   $filter: {
                     input: "$$resultScore.studentResults",
                     as: "studentResult",
-                    cond: { $eq: ["$$studentResult.studentId", "$_id"] },
+                    cond: {
+                      $eq: ["$$studentResult.studentId", "$_id"],
+                    },
                   },
                 },
               },
@@ -538,14 +546,18 @@ const viewResultAggregate = (term, section, arm, classN) => {
                   $filter: {
                     input: "$subjects",
                     as: "subject",
-                    cond: { $eq: ["$$resultScore.subject", "$$subject._id"] },
+                    cond: {
+                      $eq: ["$$resultScore.subject", "$$subject._id"],
+                    },
                   },
                 },
                 studentResults: {
                   $filter: {
                     input: "$$resultScore.studentResults",
                     as: "studentResult",
-                    cond: { $eq: ["$$studentResult.studentId", "$_id"] },
+                    cond: {
+                      $eq: ["$$studentResult.studentId", "$_id"],
+                    },
                   },
                 },
               },
@@ -560,14 +572,44 @@ const viewResultAggregate = (term, section, arm, classN) => {
                   $filter: {
                     input: "$subjects",
                     as: "subject",
-                    cond: { $eq: ["$$resultScore.subject", "$$subject._id"] },
+                    cond: {
+                      $eq: ["$$resultScore.subject", "$$subject._id"],
+                    },
                   },
                 },
                 studentResults: {
                   $filter: {
                     input: "$$resultScore.studentResults",
                     as: "studentResult",
-                    cond: { $eq: ["$$studentResult.studentId", "$_id"] },
+                    cond: {
+                      $eq: ["$$studentResult.studentId", "$_id"],
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+        resultScores: {
+          $map: {
+            input: "$resultScores",
+            as: "resultScore",
+            in: {
+              subject: {
+                $filter: {
+                  input: "$subjects",
+                  as: "subject",
+                  cond: {
+                    $eq: ["$$resultScore.subject", "$$subject._id"],
+                  },
+                },
+              },
+              studentResults: {
+                $filter: {
+                  input: "$$resultScore.studentResults",
+                  as: "studentResult",
+                  cond: {
+                    $eq: ["$$studentResult.studentId", "$_id"],
                   },
                 },
               },
@@ -585,26 +627,15 @@ const viewResultAggregate = (term, section, arm, classN) => {
         arm: 1,
         admissionNumber: 1,
         present: 1,
-        terms: 1,
-        resultScores: {
-          $map: {
-            input: "$resultScores",
-            as: "resultScore",
-            in: {
-              subject: { $arrayElemAt: ["$$resultScore.subject", 0] },
-              studentResults: {
-                $arrayElemAt: ["$$resultScore.studentResults", 0],
-              },
-            },
-          },
-        },
         terms: {
           first: {
             $map: {
               input: "$terms.first",
               as: "resultScore",
               in: {
-                subject: { $arrayElemAt: ["$$resultScore.subject", 0] },
+                subject: {
+                  $arrayElemAt: ["$$resultScore.subject", 0],
+                },
                 studentResults: {
                   $arrayElemAt: ["$$resultScore.studentResults", 0],
                 },
@@ -616,7 +647,9 @@ const viewResultAggregate = (term, section, arm, classN) => {
               input: "$terms.second",
               as: "resultScore",
               in: {
-                subject: { $arrayElemAt: ["$$resultScore.subject", 0] },
+                subject: {
+                  $arrayElemAt: ["$$resultScore.subject", 0],
+                },
                 studentResults: {
                   $arrayElemAt: ["$$resultScore.studentResults", 0],
                 },
@@ -628,10 +661,26 @@ const viewResultAggregate = (term, section, arm, classN) => {
               input: "$terms.third",
               as: "resultScore",
               in: {
-                subject: { $arrayElemAt: ["$$resultScore.subject", 0] },
+                subject: {
+                  $arrayElemAt: ["$$resultScore.subject", 0],
+                },
                 studentResults: {
                   $arrayElemAt: ["$$resultScore.studentResults", 0],
                 },
+              },
+            },
+          },
+        },
+        resultScores: {
+          $map: {
+            input: "$resultScores",
+            as: "resultScore",
+            in: {
+              subject: {
+                $arrayElemAt: ["$$resultScore.subject", 0],
+              },
+              studentResults: {
+                $arrayElemAt: ["$$resultScore.studentResults", 0],
               },
             },
           },
@@ -734,15 +783,76 @@ const viewResultAggregate = (term, section, arm, classN) => {
           $reduce: {
             input: "$resultScores.studentResults.total",
             initialValue: 0,
-            in: { $round: [{ $add: ["$$value", "$$this"] }, 1] },
+            in: {
+              $round: [
+                {
+                  $add: ["$$value", "$$this"],
+                },
+                1,
+              ],
+            },
           },
         },
-        avg: {
-          $reduce: {
-            input: "$resultScores.studentResults.total",
-            initialValue: 0,
-            in: { $round: [{ $avg: ["$$value", "$$this"] }, 1] },
+      },
+    },
+    {
+      $project: {
+        name: 1,
+        gender: 1,
+        passport: 1,
+        class: 1,
+        arm: 1,
+        admissionNumber: 1,
+        present: 1,
+        terms: 1,
+        resultScores: {
+          $filter: {
+            input: "$resultScores",
+            as: "score",
+            cond: {
+              $ifNull: ["$$score.studentResults.scores", false],
+            },
           },
+        },
+        totalScore: 1,
+      },
+    },
+    {
+      $project: {
+        name: 1,
+        gender: 1,
+        passport: 1,
+        class: 1,
+        arm: 1,
+        admissionNumber: 1,
+        present: 1,
+        terms: 1,
+        resultScores: 1,
+        totalScore: 1,
+        avg: {
+          $divide: [
+            "$totalScore",
+            {
+              $size: "$resultScores",
+            },
+          ],
+        },
+      },
+    },
+    {
+      $project: {
+        name: 1,
+        gender: 1,
+        passport: 1,
+        class: 1,
+        arm: 1,
+        admissionNumber: 1,
+        present: 1,
+        terms: 1,
+        resultScores: 1,
+        totalScore: 1,
+        avg: {
+          $round: ["$avg", 1],
         },
       },
     },
@@ -769,7 +879,14 @@ const viewResultAggregate = (term, section, arm, classN) => {
               ],
             },
             initialValue: 0,
-            in: { $round: [{ $add: ["$$value", "$$this"] }, 1] },
+            in: {
+              $round: [
+                {
+                  $add: ["$$value", "$$this"],
+                },
+                1,
+              ],
+            },
           },
         },
         cumulativeAvg: {
@@ -782,30 +899,106 @@ const viewResultAggregate = (term, section, arm, classN) => {
               ],
             },
             initialValue: 0,
-            in: { $round: [{ $avg: ["$$value", "$$this"] }, 1] },
+            in: {
+              $round: [
+                {
+                  $avg: ["$$value", "$$this"],
+                },
+                1,
+              ],
+            },
           },
         },
       },
     },
-    { $sort: { cumulativeTotal: -1 } },
-    { $group: { _id: null, students: { $push: "$$ROOT" } } },
-    { $unwind: { path: "$students", includeArrayIndex: "cumulativePostion" } },
+    {
+      $sort: {
+        cumulativeTotal: -1,
+      },
+    },
+    {
+      $group: {
+        _id: null,
+        students: {
+          $push: "$$ROOT",
+        },
+      },
+    },
+    {
+      $unwind: {
+        path: "$students",
+        includeArrayIndex: "cumulativePostion",
+      },
+    },
     {
       $project: {
         students: 1,
-        cumulativePostion: { $add: ["$cumulativePostion", 1] },
+        cumulativePostion: {
+          $add: ["$cumulativePostion", 1],
+        },
       },
     },
-    { $project: { _id: 0 } },
-    { $replaceRoot: { newRoot: { $mergeObjects: ["$students", "$$ROOT"] } } },
-    { $project: { students: 0 } },
-    { $sort: { totalScore: -1 } },
-    { $group: { _id: null, students: { $push: "$$ROOT" } } },
-    { $unwind: { path: "$students", includeArrayIndex: "position" } },
-    { $project: { students: 1, position: { $add: ["$position", 1] } } },
-    { $project: { _id: 0 } },
-    { $replaceRoot: { newRoot: { $mergeObjects: ["$students", "$$ROOT"] } } },
-    { $project: { students: 0 } },
+    {
+      $project: {
+        _id: 0,
+      },
+    },
+    {
+      $replaceRoot: {
+        newRoot: {
+          $mergeObjects: ["$students", "$$ROOT"],
+        },
+      },
+    },
+    {
+      $project: {
+        students: 0,
+      },
+    },
+    {
+      $sort: {
+        totalScore: -1,
+      },
+    },
+    {
+      $group: {
+        _id: null,
+        students: {
+          $push: "$$ROOT",
+        },
+      },
+    },
+    {
+      $unwind: {
+        path: "$students",
+        includeArrayIndex: "position",
+      },
+    },
+    {
+      $project: {
+        students: 1,
+        position: {
+          $add: ["$position", 1],
+        },
+      },
+    },
+    {
+      $project: {
+        _id: 0,
+      },
+    },
+    {
+      $replaceRoot: {
+        newRoot: {
+          $mergeObjects: ["$students", "$$ROOT"],
+        },
+      },
+    },
+    {
+      $project: {
+        students: 0,
+      },
+    },
     {
       $project: {
         name: 1,
@@ -865,8 +1058,12 @@ const viewResultAggregate = (term, section, arm, classN) => {
             as: "resultBehaviour",
             cond: {
               $and: [
-                { $eq: ["$$resultBehaviour.term", term] },
-                { $eq: ["$$resultBehaviour.section", section] },
+                {
+                  $eq: ["$$resultBehaviour.term", "Second"],
+                },
+                {
+                  $eq: ["$$resultBehaviour.section", "2021/2022"],
+                },
               ],
             },
           },
@@ -877,8 +1074,12 @@ const viewResultAggregate = (term, section, arm, classN) => {
             as: "resultSkill",
             cond: {
               $and: [
-                { $eq: ["$$resultSkill.term", term] },
-                { $eq: ["$$resultSkill.section", section] },
+                {
+                  $eq: ["$$resultSkill.term", "Second"],
+                },
+                {
+                  $eq: ["$$resultSkill.section", "2021/2022"],
+                },
               ],
             },
           },
@@ -903,8 +1104,12 @@ const viewResultAggregate = (term, section, arm, classN) => {
         cumulativeTotal: 1,
         cumulativeAvg: 1,
         cumulativePostion: 1,
-        resultBehaviours: { $arrayElemAt: ["$resultBehaviours", 0] },
-        resultSkills: { $arrayElemAt: ["$resultSkills", 0] },
+        resultBehaviours: {
+          $arrayElemAt: ["$resultBehaviours", 0],
+        },
+        resultSkills: {
+          $arrayElemAt: ["$resultSkills", 0],
+        },
       },
     },
     {
@@ -925,8 +1130,12 @@ const viewResultAggregate = (term, section, arm, classN) => {
         cumulativeTotal: 1,
         cumulativeAvg: 1,
         cumulativePostion: 1,
-        resultBehaviours: { behaviourScores: 1 },
-        resultSkills: { skillScores: 1 },
+        resultBehaviours: {
+          behaviourScores: 1,
+        },
+        resultSkills: {
+          skillScores: 1,
+        },
       },
     },
     {
@@ -1005,21 +1214,27 @@ const viewResultAggregate = (term, section, arm, classN) => {
                 $filter: {
                   input: "$terms.first",
                   as: "term",
-                  cond: { $eq: ["$$term.subject", "$$resultScore.subject"] },
+                  cond: {
+                    $eq: ["$$term.subject", "$$resultScore.subject"],
+                  },
                 },
               },
               second: {
                 $filter: {
                   input: "$terms.second",
                   as: "term",
-                  cond: { $eq: ["$$term.subject", "$$resultScore.subject"] },
+                  cond: {
+                    $eq: ["$$term.subject", "$$resultScore.subject"],
+                  },
                 },
               },
               third: {
                 $filter: {
                   input: "$terms.third",
                   as: "term",
-                  cond: { $eq: ["$$term.subject", "$$resultScore.subject"] },
+                  cond: {
+                    $eq: ["$$term.subject", "$$resultScore.subject"],
+                  },
                 },
               },
             },
@@ -1053,9 +1268,15 @@ const viewResultAggregate = (term, section, arm, classN) => {
             in: {
               subject: "$$resultScore.subject",
               studentResults: "$$resultScore.studentResults",
-              first: { $arrayElemAt: ["$$resultScore.first", 0] },
-              second: { $arrayElemAt: ["$$resultScore.second", 0] },
-              third: { $arrayElemAt: ["$$resultScore.third", 0] },
+              first: {
+                $arrayElemAt: ["$$resultScore.first", 0],
+              },
+              second: {
+                $arrayElemAt: ["$$resultScore.second", 0],
+              },
+              third: {
+                $arrayElemAt: ["$$resultScore.third", 0],
+              },
             },
           },
         },
@@ -1245,6 +1466,7 @@ const previousResultAggregate = (term, section, admissionNumber) => {
     },
   ];
 };
+
 module.exports = {
   viewResultAggregate,
   previousResultAggregate,
