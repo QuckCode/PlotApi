@@ -913,7 +913,7 @@ const viewResultAggregate = (term, section, arm, classN) => {
     },
     {
       $sort: {
-        cumulativeTotal: -1,
+        avg: -1,
       },
     },
     {
@@ -957,7 +957,7 @@ const viewResultAggregate = (term, section, arm, classN) => {
     },
     {
       $sort: {
-        totalScore: -1,
+        avg: -1,
       },
     },
     {
