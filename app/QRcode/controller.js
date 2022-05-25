@@ -9,9 +9,8 @@ export const getStudentByAdmissionNumberQrCode = async (req, res, next) => {
     const { admissionNumber } = req.params;
     if (!admissionNumber)
       return next(new APIError("Missing Parameter", "Admission  Number"));
-    let newStudent = admissionNumber.replace(/-/gi, "/");
     let data = await Student.findOne({
-      admissionNumber: newStudent,
+      admissionNumber,
       active: true,
     })
       .select("-behaviourScores -skillScores -testScores -password")
@@ -24,7 +23,7 @@ export const getStudentByAdmissionNumberQrCode = async (req, res, next) => {
     let className = `${data.class.name} ${data.arm.character}`;
     let gender = data.gender ? "M" : "F";
     let image = data.passport;
-    let response = { ...data, class: className, name, gender, phone: image };
+    let response = { ...data, class: className, name, gender };
     return res.send(response);
   } catch (error) {
     return next(new APIError("User Error", error.message));
