@@ -830,12 +830,25 @@ const viewResultAggregate = (term, section, arm, classN) => {
         resultScores: 1,
         totalScore: 1,
         avg: {
-          $divide: [
-            "$totalScore",
-            {
-              $size: "$resultScores",
+          $cond: {
+            if: {
+              $and: [
+                {
+                  $gt: ["$totalScore", 0],
+                  $gt: [{ $size: "$resultScores" }, 0],
+                },
+              ],
             },
-          ],
+            then: {
+              $divide: [
+                "$totalScore",
+                {
+                  $size: "$resultScores",
+                },
+              ],
+            },
+            else: 0,
+          },
         },
       },
     },
