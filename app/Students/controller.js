@@ -10,6 +10,8 @@ import Subject from "../Subject/model";
 import Class from "../Class/model";
 import moment from "moment";
 import School from "../School/model";
+import { nanoid } from "nanoid";
+
 const { ObjectId } = mongoose.Types;
 
 export const createStudent = async (req, res, next) => {
