@@ -10,7 +10,6 @@ import Subject from "../Subject/model";
 import Class from "../Class/model";
 import moment from "moment";
 import School from "../School/model";
-import { nanoid } from "nanoid";
 const { ObjectId } = mongoose.Types;
 
 export const createStudent = async (req, res, next) => {
@@ -59,7 +58,7 @@ export const createStudent = async (req, res, next) => {
     );
   if (!admissionDate)
     return next(
-      new APIError("Missing Parameter", missingParameterError("School"))
+      new APIError("Missing Parameter", missingParameterError("Admission Date"))
     );
   var today = new Date();
   var year = today.getFullYear();
@@ -68,29 +67,29 @@ export const createStudent = async (req, res, next) => {
     const schoolData = await School.findOne({ _id: school });
     if (schoolData.length == 0)
       return next(new APIError("User Error", "School Was Not Found"));
-    await Student.find({ school }).then((data) => {
-      const student = new Student({
-        class: classN,
-        firstName,
-        middleName,
-        srnName,
-        dob,
-        phone,
-        address,
-        gender: gender === 1 ? true : false,
-        classN,
-        arm,
-        school,
-        admissionDate,
-        admissionNumber: `${data.schoolPrefix}-student-${year}-${nanoid(4)}`,
-        state,
-        lga,
-      });
-
-      student
-        .save()
-        .then(() => res.send({ title: "Create Student ", message: "Success" }));
+    const student = new Student({
+      class: classN,
+      firstName,
+      middleName,
+      srnName,
+      dob,
+      phone,
+      address,
+      gender: gender === 1 ? true : false,
+      classN,
+      arm,
+      school,
+      admissionDate,
+      admissionNumber: `${schoolData.schoolPrefix}-student-${year}-${nanoid(
+        4
+      )}`,
+      state,
+      lga,
     });
+
+    student
+      .save()
+      .then(() => res.send({ title: "Create Student ", message: "Success" }));
   } catch (error) {
     return next(new APIError(error.title, error.message));
   }
