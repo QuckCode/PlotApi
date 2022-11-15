@@ -830,6 +830,43 @@ export const PromoteByResult = async (req, res, next) => {
   return res.send({ message: "Successfully promoted student " });
 };
 
+export const PromoteSingleStudent = async (req, res, next) => {
+  const { classN, arm, school, studentId } = req.body;
+
+  if (!classN)
+    return next(
+      new APIError("Missing Parameter", missingParameterError("Class"))
+    );
+  if (!arm)
+    return next(
+      new APIError("Missing Parameter", missingParameterError("Arm"))
+    );
+  if (!school)
+    return next(
+      new APIError("Missing Parameter", missingParameterError("School"))
+    );
+  if (!studentId)
+    return next(
+      new APIError("Missing Parameter", missingParameterError("Students Id"))
+    );
+
+  Student.findById(studentId)
+    .then((data) => {
+      data.class = classN;
+      data.arm = arm;
+      (data.behaviourScores = []),
+        (data.skillScores = []),
+        (data.testScores = []);
+      data.save().catch((err) => {
+        return next(new APIError("User Error", err.message));
+      });
+    })
+    .catch((err) => {
+      return next(new APIError("User Error", err.message));
+    });
+  return res.send({ message: "Successfully promoted student " });
+};
+
 export const GradateStudent = async (req, res, next) => {
   const { classN, arm, school, studentData } = req.body;
 
@@ -941,6 +978,7 @@ export default {
   AddNotice,
   RemoveNotice,
   PromoteByResult,
+  PromoteSingleStudent,
   GetAllNotice,
   GradateStudent,
   PreviousResult,

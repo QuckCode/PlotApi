@@ -13,6 +13,7 @@ const {
   GetAllNotice,
   GraduateResult,
   PreviousResult,
+  PromoteResultSingle,
 } = require("./routes");
 const { app } = require("../../server");
 
@@ -46,6 +47,8 @@ app.delete(RemoveNotice, ResultController.RemoveNotice);
 app.get(GetAllNotice, ResultController.GetAllNotice);
 
 app.post(PromoteResult, ResultController.PromoteByResult);
+
+app.post(PromoteResultSingle, ResultController.PromoteSingleStudent);
 
 app.post(GraduateResult, ResultController.GradateStudent);
 

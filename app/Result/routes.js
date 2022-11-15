@@ -10,6 +10,7 @@ export const AddNotice = "/result/addNotice";
 export const RemoveNotice = "/result/removeNotice";
 export const GetAllNotice = "/result/notice/:school";
 export const PromoteResult = "/result/promote";
+export const PromoteResultSingle = "/result/promote/single";
 export const GraduateResult = "/result/graduate";
 export const PreviousResult = "/result/previous";
 export const GetContinuosAssessmentSheetAllSubject =
