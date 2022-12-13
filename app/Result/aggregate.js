@@ -1072,10 +1072,10 @@ const viewResultAggregate = (term, section, arm, classN) => {
             cond: {
               $and: [
                 {
-                  $eq: ["$$resultBehaviour.term", "Second"],
+                  $eq: ["$$resultBehaviour.term", term],
                 },
                 {
-                  $eq: ["$$resultBehaviour.section", "2021/2022"],
+                  $eq: ["$$resultBehaviour.section", section],
                 },
               ],
             },
@@ -1088,10 +1088,10 @@ const viewResultAggregate = (term, section, arm, classN) => {
             cond: {
               $and: [
                 {
-                  $eq: ["$$resultSkill.term", "Second"],
+                  $eq: ["$$resultSkill.term", term],
                 },
                 {
-                  $eq: ["$$resultSkill.section", "2021/2022"],
+                  $eq: ["$$resultSkill.section", section],
                 },
               ],
             },
