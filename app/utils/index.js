@@ -58,11 +58,13 @@ function parseStudentArmSubject(subject, test, students) {
   // console.log(subject, test, students)
   let data = [];
   for (const student of students) {
-    let isSubject = student.testScores.find(
-      (x) =>
+    let isSubject = student.testScores.find((x) => {
+      if (x === null) return false;
+      return (
         String(subject._id) === String(x.subject) &&
         String(test._id) === String(x.test)
-    );
+      );
+    });
     data.push({
       userId: student._id,
       name: `${student.firstName ? student.firstName : ""} ${
