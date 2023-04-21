@@ -277,7 +277,6 @@ const login = function (passport) {
 const loginAdmin = function (passport) {
   return function (req, res, next) {
     passport.authenticate("admin", { session: false }, (err, staff, info) => {
-      console.log(next);
       if (err || !staff) {
         return next(new APIError("User Error", info.message, 400));
       }
