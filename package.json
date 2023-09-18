@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "Ifechukw daniel",
   "engines": {
-    "node": "16.14.2"
+    "node":"18.17.0"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon  --exec babel-node  server.js ",
